@@ -1,6 +1,6 @@
-# Breakdance Custom Elements
+# Wilson Language Custom Elements
 
-Save your custom elements here to use them in Breakdance or easily share them across Breakdance installations.
+Saving of custom elements to use in Breakdance or easily share across Breakdance installations.
 
 ## Instructions
 
