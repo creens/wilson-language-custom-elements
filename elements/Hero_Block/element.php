@@ -107,7 +107,47 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function contentControls()
     {
-        return [];
+        return [c(
+        "hero_text",
+        "Hero Text",
+        [c(
+        "headline",
+        "Headline",
+        [],
+        ['type' => 'text', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
+        "subhead",
+        "Subhead",
+        [],
+        ['type' => 'text', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
+        "body_copy",
+        "Body Copy",
+        [],
+        ['type' => 'richtext', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
+        "hero_media",
+        "Hero Media",
+        [],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      )];
     }
 
     static function settingsControls()
@@ -162,7 +202,7 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return false;
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
