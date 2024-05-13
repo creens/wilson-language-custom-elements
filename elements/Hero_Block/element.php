@@ -142,7 +142,31 @@ class HeroBlock extends \Breakdance\Elements\Element
       ), c(
         "hero_media",
         "Hero Media",
+        [c(
+        "media_type",
+        "Media Type",
         [],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'image', 'text' => 'Image'], '1' => ['text' => 'Video', 'value' => 'video']]],
+        false,
+        false,
+        [],
+      ), c(
+        "image",
+        "Image",
+        [],
+        ['type' => 'wpmedia', 'layout' => 'vertical', 'condition' => ['0' => ['0' => ['path' => 'content.hero_media.media_type', 'operand' => 'equals', 'value' => 'image']]]],
+        false,
+        false,
+        [],
+      ), c(
+        "video",
+        "Video",
+        [],
+        ['type' => 'video', 'layout' => 'vertical', 'condition' => ['0' => ['0' => ['path' => 'content.hero_media.media_type', 'operand' => 'equals', 'value' => 'video']]]],
+        false,
+        false,
+        [],
+      )],
         ['type' => 'section', 'layout' => 'vertical'],
         false,
         false,
@@ -202,7 +226,7 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
