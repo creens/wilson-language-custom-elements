@@ -171,6 +171,32 @@ class HeroBlock extends \Breakdance\Elements\Element
         false,
         false,
         [],
+      ), c(
+        "button_s_",
+        "Button(s)",
+        [c(
+        "quantity",
+        "Quantity",
+        [],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'one', 'text' => 'One'], '1' => ['text' => 'Two', 'value' => 'two']], 'buttonBarOptions' => ['size' => 'big', 'layout' => 'default']],
+        false,
+        false,
+        [],
+      ), getPresetSection(
+      "EssentialElements\\AtomV1ButtonContent",
+      "Button 1",
+      "button_1",
+       ['condition' => ['0' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'one']], '1' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+     ), getPresetSection(
+      "EssentialElements\\AtomV1ButtonContent",
+      "Button 2",
+      "button_2",
+       ['condition' => ['0' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+     )],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
       )];
     }
 
@@ -226,7 +252,7 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url']];
     }
 
     static function additionalClasses()

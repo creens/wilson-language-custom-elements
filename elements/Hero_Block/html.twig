@@ -1,8 +1,26 @@
 <div class="hero-container">
-  <div class="hero-copy">
-    <h1>{{ content.hero_text.headline }}</h1>
-    <h2>{{ content.hero_text.subhead }}</h2>
-    <p>{{ content.hero_text.body_copy }}</p>
+  <div class="hero-action">
+    <div class="hero-copy">
+      <h1>{{ content.hero_text.headline }}</h1>
+      <h2>{{ content.hero_text.subhead }}</h2>
+      <p>{{ content.hero_text.body_copy }}</p>
+    </div>
+    <div class="hero-btns">
+		
+      {% if (content.button_s_.quantity == "one") %}
+        <!-- Button (Primary) -->
+        {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+
+          {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+
+        <!-- Button (Secondary) -->
+        {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+
+      {% endif %}
+      
+    </div>
   </div>
   <div class="hero-media">
         {{ macros.getMedia(content.hero_media.image, content.content.size, content.content.lazyLoad) }}
