@@ -1,32 +1,58 @@
 %%SELECTOR%% {
-  display:flex;
-  padding:100px 50px;
-  min-height:300px;
   width:100%;
-{% if design.background.color == 'blue' %}
-	background:#003DA5;
-	position: relative;
-  &::before {
-    content:'';
-  	background:url('data:image/svg+xml,<svg width="977.947933px" height="1381.27244px" viewBox="0 0 977.947933 1381.27244" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Homepage-v3" transform="translate(-644, 228.0003)" fill="%23CBD8F0"><g id="HERO" transform="translate(-3, 44)"><g id="blue-circles" transform="translate(647, -272.0003)"><path d="M961.74756,997.20537 C971.89256,1198.91437 816.59956,1370.65737 614.88956,1380.80237 C413.18056,1390.94737 241.43856,1235.65437 231.29356,1033.94437 C221.14756,832.23537 376.44156,660.49337 578.15056,650.34737 C779.86056,640.20237 951.60256,795.49637 961.74756,997.20537" id="Fill-1" style="mix-blend-mode: multiply;"></path><path d="M730.92416,529.18717 C741.06916,730.89617 585.77616,902.63917 384.06616,912.78417 C182.35716,922.92917 10.6151604,767.63617 0.470160398,565.92617 C-9.6758396,364.21717 145.61816,192.47517 347.32716,182.32917 C549.03716,172.18417 720.77916,327.47817 730.92416,529.18717" id="Fill-4" style="mix-blend-mode: multiply;"></path><path d="M977.47786,347.32807 C987.62286,549.03707 832.32986,720.78007 630.61986,730.92507 C428.91086,741.07007 257.16886,585.77707 247.02386,384.06707 C236.87786,182.35807 392.17186,10.6160702 593.88086,0.470070229 C795.59086,-9.67492977 967.33286,145.61907 977.47786,347.32807" id="Fill-6" style="mix-blend-mode: multiply;"></path></g></g></g></g></svg>') no-repeat;
-    position:absolute;
-    right:0;
-    left:50%;
-    top:0;
-    bottom:0;
+  position:relative;
+  overflow:hidden;
+  .hero-container {
+    display:flex;
+    align-items:center;
+    gap:60px;
+    padding:100px 50px;
+    margin:0 auto;
+    min-height:300px;
     width:100%;
-    height:100%;
-    mix-blend-mode:multiply;
-    z-index:0;
+    max-width:1120px;
+    .hero-text, .hero-media {
+    	flex:1;
+    }
+    h1, h2, p, img {
+      position:relative;
+      z-index:10;
+    }
+    .hero-media {
+      width:450px;
+      height:450px;
+      img {
+        width:100%;
+        height:450px;
+        object-fit:cover;
+        border-radius:50%;
+        border:9px solid #F1BE48;
+        box-shadow:0 2px 50px rgba(0,0,0,.25);
+      }
+    }
   }
-  h1, h2, p {
-  	color:white;
-    position:relative;
-    z-index:10;
-  } 
-{% elseif design.background.color == 'gold' %}
-	background:#F1BE48;
-{% elseif design.background.color == 'teal' %}
-	background:#71DDB7;
-{% endif %}
+  {% if design.background.color == 'blue' %}
+	background:#003DA5;
+    &::before {
+      content:'';
+      background:url('data:image/svg+xml,<svg width="977.947933px" height="981.27244px" viewBox="0 0 977.947933 1381.27244" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Homepage-v3" transform="translate(-644, 228.0003)" fill="%23CBD8F0"><g id="HERO" transform="translate(-3, 44)"><g id="blue-circles" transform="translate(647, -272.0003)"><path d="M961.74756,997.20537 C971.89256,1198.91437 816.59956,1370.65737 614.88956,1380.80237 C413.18056,1390.94737 241.43856,1235.65437 231.29356,1033.94437 C221.14756,832.23537 376.44156,660.49337 578.15056,650.34737 C779.86056,640.20237 951.60256,795.49637 961.74756,997.20537" id="Fill-1" style="mix-blend-mode: multiply;"></path><path d="M730.92416,529.18717 C741.06916,730.89617 585.77616,902.63917 384.06616,912.78417 C182.35716,922.92917 10.6151604,767.63617 0.470160398,565.92617 C-9.6758396,364.21717 145.61816,192.47517 347.32716,182.32917 C549.03716,172.18417 720.77916,327.47817 730.92416,529.18717" id="Fill-4" style="mix-blend-mode: multiply;"></path><path d="M977.47786,347.32807 C987.62286,549.03707 832.32986,720.78007 630.61986,730.92507 C428.91086,741.07007 257.16886,585.77707 247.02386,384.06707 C236.87786,182.35807 392.17186,10.6160702 593.88086,0.470070229 C795.59086,-9.67492977 967.33286,145.61907 977.47786,347.32807" id="Fill-6" style="mix-blend-mode: multiply;"></path></g></g></g></g></svg>') no-repeat;
+      background-size:cover;
+      position:absolute;
+      right:0;
+      top:-45%;
+      bottom:0;
+      width:100%;
+      max-width:1120px;
+      margin:0 0 0 auto;
+      mix-blend-mode:multiply;
+      z-index:0;
+    }
+    h1, h2, p {
+      color:white;
+    } 
+  {% elseif design.background.color == 'gold' %}
+      background:#F1BE48;
+  {% elseif design.background.color == 'teal' %}
+      background:#71DDB7;
+  {% endif %}
 }

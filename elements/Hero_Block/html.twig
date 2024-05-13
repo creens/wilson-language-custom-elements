@@ -1,5 +1,10 @@
-<div class="hero-copy">
-  <h1>{{ content.hero_text.headline }}</h1>
-  <h2>{{ content.hero_text.subhead }}</h2>
-  <p>{{ content.hero_text.body_copy }}</p>
+<div class="hero-container">
+  <div class="hero-copy">
+    <h1>{{ content.hero_text.headline }}</h1>
+    <h2>{{ content.hero_text.subhead }}</h2>
+    <p>{{ content.hero_text.body_copy }}</p>
+  </div>
+  <div class="hero-media">
+        {{ macros.getMedia(content.hero_media.image, content.content.size, content.content.lazyLoad) }}
+  </div>
 </div>
