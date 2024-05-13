@@ -2,7 +2,9 @@
   <div class="hero-action">
     <div class="hero-copy">
       <h1>{{ content.hero_text.headline }}</h1>
-      <h2>{{ content.hero_text.subhead }}</h2>
+      {% if content.hero_text.subhead is defined %}
+        <h2>{{ content.hero_text.subhead }}</h2>
+      {% endif %}
       <p>{{ content.hero_text.body_copy }}</p>
     </div>
     <div class="hero-btns">
@@ -23,6 +25,10 @@
     </div>
   </div>
   <div class="hero-media">
-        {{ macros.getMedia(content.hero_media.image, content.content.size, content.content.lazyLoad) }}
+    {% if design.hero_media.media_type == 'image' %}
+		{{ macros.getMedia(design.hero_media.image, content.content.size, content.content.lazyLoad) }}
+    {% elseif design.hero_media.media_type == 'video' %}
+      {{ macros.getMedia(design.hero_media.image, content.content.size, content.content.lazyLoad) }}
+    {% endif %}
   </div>
 </div>
