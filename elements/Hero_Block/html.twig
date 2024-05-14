@@ -14,12 +14,11 @@
     <div class="hero-btns">
 		
       {% if (content.button_s_.quantity == "one") %}
-        <!-- Button (Primary) -->
+
         {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
 
           {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
 
-        <!-- Button (Secondary) -->
         {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
 
           {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
@@ -33,7 +32,12 @@
       {% if design.hero_media.media_type == 'image' %}
       	{{ macros.image(design.hero_media.image, content.content.size, alt, lazyLoad) }}
       {% elseif design.hero_media.media_type == 'video' %}
-         {{ macros.video(design.hero_media.video) }}
+      <div class="video-wrapper">
+	      {{ macros.video(design.hero_media.video) }}
+        <div class="controls">
+			<button id="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
+  		</div>
+      </div>
       {% endif %}
     </div>
 	{% endif %}

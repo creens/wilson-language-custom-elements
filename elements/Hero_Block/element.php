@@ -125,7 +125,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "video",
         "Video",
         [],
-        ['type' => 'video', 'layout' => 'vertical', 'condition' => ['0' => ['0' => ['path' => 'design.hero_media.media_type', 'operand' => 'equals', 'value' => 'video']]]],
+        ['type' => 'video', 'layout' => 'vertical', 'videoOptions' => ['providers' => ['0' => 'youtube', '1' => 'vimeo', '2' => 'dailymotion']], 'condition' => ['0' => ['0' => ['path' => 'design.hero_media.media_type', 'operand' => 'equals', 'value' => 'video']]]],
         false,
         false,
         [],
@@ -207,7 +207,29 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return false;
+        return ['0' =>  ['inlineScripts' => ['const video = document.querySelector("video");
+const playButton = document.querySelector("#play-button");
+
+// Check if video exists
+if (video) {
+  // Set video to autoplay muted initially (if video exists)
+  video.autoplay = true;
+  video.muted = true;
+
+  // Add event listeners for video and button (if video exists)
+  [video, playButton].forEach(element => {
+    element.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        video.muted = false; // Unmute on play
+        playButton.style.display = "none"; // Hide button on play
+      } else {
+        video.pause();
+        playButton.style.display = "inline"; // Show image on pause
+      }
+    });
+  });
+}'],'title' => 'Video Player',],];
     }
 
     static function settings()
@@ -252,14 +274,18 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], '7' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '8' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '9' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '10' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], '7' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '8' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '9' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '10' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '11' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '12' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '13' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
     {
-        return [['name' => 'with-media', 'template' => '{% if design.hero_media and (design.hero_media.media_type == "image" or design.hero_media.media_type == "video") %}
+        return [['name' => 'with-media', 'template' => '{% if design.hero_media is defined and design.hero_media.media_type in [\'image\', \'video\'] %}
   with-media
-{% endif %}']];
+{% endif %}
+'], ['name' => 'with-video', 'template' => '{% if design.hero_media is defined and design.hero_media.media_type in [\'video\'] %}
+  with-video
+{% endif %}
+']];
     }
 
     static function projectManagement()
