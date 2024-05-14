@@ -1,11 +1,15 @@
 <div class="hero-container">
   <div class="hero-action">
     <div class="hero-copy">
-      <h1>{{ content.hero_text.headline }}</h1>
-      {% if content.hero_text.subhead is defined %}
-        <h2>{{ content.hero_text.subhead }}</h2>
+      {% if content.hero_text.headline is not empty %}
+		  <h1>{{ content.hero_text.headline }}</h1>
+	  {% endif %}
+      {% if content.hero_text.subhead is not empty %}
+       <h2>{{ content.hero_text.subhead ?? '' }}</h2>
       {% endif %}
-      <p>{{ content.hero_text.body_copy }}</p>
+      {% if content.hero_text.body_copy is not empty %}
+        {{ content.hero_text.body_copy }}
+      {% endif %}
     </div>
     <div class="hero-btns">
 		
