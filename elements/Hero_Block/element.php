@@ -45,7 +45,7 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function category()
     {
-        return 'other';
+        return 'site';
     }
 
     static function badge()
@@ -90,8 +90,8 @@ class HeroBlock extends \Breakdance\Elements\Element
         "background",
         "Background",
         [c(
-        "background_color",
-        "Background Color",
+        "color",
+        "Color",
         [],
         ['type' => 'button_bar', 'layout' => 'inline', 'items' => ['0' => ['value' => 'blue', 'text' => 'Blue'], '1' => ['text' => 'Gold', 'value' => 'gold'], '2' => ['text' => 'Teal', 'value' => 'teal']]],
         false,
@@ -109,7 +109,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "media_type",
         "Media Type",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'image', 'text' => 'Image'], '1' => ['text' => 'Video', 'value' => 'video']]],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'image', 'text' => 'Image'], '1' => ['text' => 'Video', 'value' => 'video'], '2' => ['text' => 'None', 'value' => 'none']]],
         false,
         false,
         [],
@@ -252,12 +252,14 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], '7' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '8' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '9' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '10' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
     {
-        return false;
+        return [['name' => 'with-media', 'template' => '{% if design.hero_media and (design.hero_media.media_type == "image" or design.hero_media.media_type == "video") %}
+  with-media
+{% endif %}']];
     }
 
     static function projectManagement()

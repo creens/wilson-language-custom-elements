@@ -24,15 +24,17 @@
 
           {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
 
-      {% endif %}
-      
+      {% endif %} 
     </div>
   </div>
-  <div class="hero-media">
-    {% if design.hero_media.media_type == 'image' %}
-		{{ macros.getMedia(design.hero_media.image, content.content.size, content.content.lazyLoad) }}
-    {% elseif design.hero_media.media_type == 'video' %}
-      {{ macros.getMedia(design.hero_media.image, content.content.size, content.content.lazyLoad) }}
-    {% endif %}
-  </div>
+  {% if design.hero_media.media_type == 'none' %}
+   {% else %}
+    <div class="hero-media">
+      {% if design.hero_media.media_type == 'image' %}
+      	{{ macros.image(design.hero_media.image, content.content.size, alt, lazyLoad) }}
+      {% elseif design.hero_media.media_type == 'video' %}
+         {{ macros.video(design.hero_media.video) }}
+      {% endif %}
+    </div>
+	{% endif %}
 </div>
