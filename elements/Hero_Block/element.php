@@ -209,6 +209,8 @@ class HeroBlock extends \Breakdance\Elements\Element
     {
         return ['0' =>  ['inlineScripts' => ['const video = document.querySelector("video");
 const playButton = document.querySelector("#play-button");
+const scrubberContain = document.querySelector(".scrubber-container");
+const scrubber = document.querySelector("#scrubber");
 
 // Check if video exists
 if (video) {
@@ -226,8 +228,18 @@ if (video) {
       } else {
         video.pause();
         playButton.style.display = "inline"; // Show image on pause
+        scrubberContain.style.display = "block";
       }
     });
+  });
+  // Update scrubber position based on video progress
+  video.addEventListener("timeupdate", () => {
+    scrubber.value = video.currentTime / video.duration;
+  });
+
+  // Update video time based on scrubber position
+  scrubber.addEventListener("input", () => {
+    video.currentTime = scrubber.value * video.duration;
   });
 }'],'title' => 'Video Player',],];
     }
@@ -274,7 +286,7 @@ if (video) {
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], '7' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '8' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '9' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '10' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '11' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '12' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '13' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], '7' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '8' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '9' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '10' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '11' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '12' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '13' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '14' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()

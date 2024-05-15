@@ -11,20 +11,22 @@
         {{ content.hero_text.body_copy }}
       {% endif %}
     </div>
-    <div class="hero-btns">
-		
-      {% if (content.button_s_.quantity == "one") %}
+    
+    {% if content.button_s_.quantity is not empty %}
+      <div class="hero-btns">
+        {% if (content.button_s_.quantity == "one") %}
 
-        {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
 
-          {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+            {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
 
-        {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
 
-          {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
 
-      {% endif %} 
-    </div>
+        {% endif %} 
+      </div>
+   {% endif %} 
   </div>
   {% if design.hero_media.media_type == 'none' %}
    {% else %}
@@ -36,6 +38,9 @@
 	      {{ macros.video(design.hero_media.video) }}
         <div class="controls">
 			<button id="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
+  		</div>
+        <div class="scrubber-container">
+    		<input type="range" id="scrubber" min="0" max="1" step="0.001" value="0" />
   		</div>
       </div>
       {% endif %}
