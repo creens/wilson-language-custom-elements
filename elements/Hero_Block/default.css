@@ -11,7 +11,7 @@
     margin:0 auto;
     min-height:300px;
     width:100%;
-    max-width:1200px;
+    max-width:1120px;
     & > * {
     	flex: 1;
     }
@@ -120,7 +120,7 @@
           max-width:520px;
         }
         .hero-media {
-          max-width:525px; 
+          max-width:450px; 
         }
       }
     }
