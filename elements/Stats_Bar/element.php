@@ -45,7 +45,7 @@ class StatsBar extends \Breakdance\Elements\Element
 
     static function category()
     {
-        return 'other';
+        return 'blocks';
     }
 
     static function badge()
@@ -148,44 +148,56 @@ class StatsBar extends \Breakdance\Elements\Element
     {
         return ['0' =>  ['inlineScripts' => ['const numberElements = document.querySelectorAll(\'.wlt-stats-bar_number\');
 
-numberElements.forEach(element => {
-const targetNumberString = element.dataset.target.replace(/m$|\,/g, \'\'); // Remove commas and trailing "M"
+function animateElement(element, delay) {
+  const targetNumberString = element.dataset.target.replace(/m$|\,/g, \'\'); // Remove commas and trailing "M"
 
-let targetNumber;
-let unit = \'\';
+  let targetNumber;
+  let unit = \'\';
 
-// Use case-insensitive regular expression
-if (targetNumberString.match(/m$/i)) { // Check for "M" at the end (case-insensitive)
-unit = \'M\';
-targetNumber = parseFloat(targetNumberString.slice(0, -1), 10); // Extract number before "M"
-} else {
-targetNumber = parseFloat(targetNumberString, 10);
+  // Use case-insensitive regular expression
+  if (targetNumberString.match(/m$/i)) { // Check for "M" at the end (case-insensitive)
+    unit = \'M\';
+    targetNumber = parseFloat(targetNumberString.slice(0, -1), 10); // Extract number before "M"
+  } else {
+    targetNumber = parseFloat(targetNumberString, 10);
+  }
+
+  const duration = 3000; // Animation duration in milliseconds (3 seconds)
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, \',\');
+  }
+
+  const step = Math.ceil(targetNumber / (duration / 160)); // Calculate increment per frame
+
+  let currentNumber = 0;
+
+  const animationInterval = setInterval(() => {
+    currentNumber += step;
+
+    if (currentNumber >= targetNumber) {
+      currentNumber = targetNumber;
+      clearInterval(animationInterval); // Stop animation when target reached
+    }
+
+    if (unit) { // Check if unit is not an empty string (once)
+      element.textContent = numberWithCommas(currentNumber.toFixed(0)) + unit;
+    } else {
+      element.textContent = numberWithCommas(currentNumber.toFixed(0));
+    }
+  }, 16); // Update text content every 16 milliseconds (roughly 60 FPS)
 }
 
-const duration = 2000; // Animation duration in milliseconds (3 seconds)
+let delay = 0; // Starting delay for animation (increases for each element)
 
-function numberWithCommas(x) {
-return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, \',\');
-}
+numberElements.forEach((element, index) => {
+  // Use setTimeout to schedule animation with a delay
+  setTimeout(() => {
+    animateElement(element, delay);
+  }, delay);
 
-const step = Math.ceil(targetNumber / (duration / 16)); // Calculate increment per frame
-
-let currentNumber = 0;
-
-const animationInterval = setInterval(() => {
-currentNumber += step;
-
-if (currentNumber >= targetNumber) {
-currentNumber = targetNumber;
-clearInterval(animationInterval); // Stop animation when target reached
-}
-
-if (unit) { // Check if unit is not an empty string (once)
-element.textContent = numberWithCommas(currentNumber.toFixed(0)) + unit;
-} else {
-element.textContent = numberWithCommas(currentNumber.toFixed(0));
-}
-}, 16); // Update text content every 16 milliseconds (roughly 60 FPS)
+  // Increase delay for next element (adjust for desired stagger effect)
+  delay += 1000; // Increase delay by 100 milliseconds for each element
 });'],],];
     }
 
