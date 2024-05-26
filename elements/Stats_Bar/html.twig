@@ -1,0 +1,28 @@
+{% if content.content.items is empty %}
+<div class="stats-bar-container">
+{% for item in content.content.items %}
+	<div class="wlt-stat-item">
+		<h3 data-target='{{ item.number }}' class='wlt-stats-bar_number'>
+         {{ item.number }}
+        </h3>
+        <p class='wlt-stats-bar_text'>
+          {{ item.text }}
+        </p>
+	</div>
+{% endfor %}
+{% endif %}
+</div>
+{% for item in content.content.items %}
+<div class="stats-bar-container">
+  <div class='wlt-stats-bar_item'>
+    <h3 data-target="{{ item.number }}" class='wlt-stats-bar_number' {{ dataContentEditablePropertyPath('content.content.items[' ~ loop.index0 ~ '].number') }}>
+     {{ item.number | default('100,000') }}
+    </h3>
+    <p class='wlt-stats-bar_text' {{ dataContentEditablePropertyPath('content.content.items[' ~ loop.index0 ~ '].text') }}>
+      {{ item.text | default('students helped') }}
+    </p>
+  </div>
+</div>
+{% endfor %}
+
+    
