@@ -1,3 +1,10 @@
+{# Custom Spacing #}
+{% if design.spacing.padding %}
+  %%SELECTOR%% .hero-container {
+    {{ macros.spacing_complex(design.spacing.padding, 'margin') }}
+  }
+{% endif %}
+
 %%SELECTOR%% {
   &.with-media {
     &.with-video {
