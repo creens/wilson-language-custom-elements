@@ -162,7 +162,7 @@ function animateElement(element, delay) {
     targetNumber = parseFloat(targetNumberString, 10);
   }
 
-  const duration = 3000; // Animation duration in milliseconds (3 seconds)
+  const duration = 5000; // Animation duration in milliseconds (3 seconds)
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, \',\');
@@ -197,7 +197,7 @@ numberElements.forEach((element, index) => {
   }, delay);
 
   // Increase delay for next element (adjust for desired stagger effect)
-  delay += 1000; // Increase delay by 100 milliseconds for each element
+  delay += 700; // Increase delay by 100 milliseconds for each element
 });'],],];
     }
 
