@@ -146,7 +146,47 @@ class StatsBar extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return false;
+        return ['0' =>  ['inlineScripts' => ['const numberElements = document.querySelectorAll(\'.wlt-stats-bar_number\');
+
+numberElements.forEach(element => {
+const targetNumberString = element.dataset.target.replace(/m$|\,/g, \'\'); // Remove commas and trailing "M"
+
+let targetNumber;
+let unit = \'\';
+
+// Use case-insensitive regular expression
+if (targetNumberString.match(/m$/i)) { // Check for "M" at the end (case-insensitive)
+unit = \'M\';
+targetNumber = parseFloat(targetNumberString.slice(0, -1), 10); // Extract number before "M"
+} else {
+targetNumber = parseFloat(targetNumberString, 10);
+}
+
+const duration = 2000; // Animation duration in milliseconds (3 seconds)
+
+function numberWithCommas(x) {
+return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, \',\');
+}
+
+const step = Math.ceil(targetNumber / (duration / 16)); // Calculate increment per frame
+
+let currentNumber = 0;
+
+const animationInterval = setInterval(() => {
+currentNumber += step;
+
+if (currentNumber >= targetNumber) {
+currentNumber = targetNumber;
+clearInterval(animationInterval); // Stop animation when target reached
+}
+
+if (unit) { // Check if unit is not an empty string (once)
+element.textContent = numberWithCommas(currentNumber.toFixed(0)) + unit;
+} else {
+element.textContent = numberWithCommas(currentNumber.toFixed(0));
+}
+}, 16); // Update text content every 16 milliseconds (roughly 60 FPS)
+});'],],];
     }
 
     static function settings()
@@ -191,7 +231,7 @@ class StatsBar extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
