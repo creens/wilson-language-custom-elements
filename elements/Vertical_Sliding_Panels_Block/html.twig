@@ -1,0 +1,44 @@
+<div class="wlt-sliding-panels">
+    {% for item in content.sliding_panels.panels %}
+        <div class="wlt-vert-panel" id="wlt-vert-panel-{{ loop.index }}">
+          <div class="vert-cover" style="background-color:{{ item.color }}">
+            <div class="icon" style="background-color:{{ item.color }}">
+              {% if item.main_graphic == 'number' %}
+              	<span class="number">{{ loop.index }}</span>
+              {% elseif item.main_graphic == 'icon' %}
+              	{{ item.icon.svgCode }}
+              {% endif %}
+            </div>
+            <div class="wlt-vert-text">
+              <div class="title" style="color:{{ item.color }}">{{ item.title }}</div>
+              <div class="description" style="color:{{ item.color }}">{{ item.description }}</div>
+              <img src="/wp-content/uploads/2024/05/icon-up-arrow.svg" alt="Arrow pointing up, indicating more content" />
+            </div>
+          </div>
+          <div class="wlt-vert-info" style="background-color:{{ item.color }}">
+			{{ item.more_info }}
+          </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="wlt-sliding-panels-support">
+  <div class="eyebrow">{{ content.content_area.eyebrow_header_text }}</div>
+  <h2>{{ content.content_area.headline }}</h2>
+  {{ content.content_area.body_copy }}
+  {% if content.button_s_.quantity is not empty %}
+      <div class="wlt-btns">
+        {% if (content.button_s_.quantity == "one") %}
+
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+
+            {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+
+        {% endif %} 
+      </div>
+   {% endif %} 
+  </div>
+</div>

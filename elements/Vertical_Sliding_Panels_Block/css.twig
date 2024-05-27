@@ -1,0 +1,21 @@
+%%SELECTOR%% {
+{% if content.content_area.eyebrow_header_color == 'blue' %}
+    .wlt-sliding-panels-support {
+      .eyebrow {
+        border-left:3px #003DA5 solid;
+      }
+    }
+  {% elseif content.content_area.eyebrow_header_color == 'gold' %}
+    .wlt-sliding-panels-support {
+      .eyebrow {
+        border-left:3px #F1BE48 solid;
+      }
+    }
+  {% elseif content.content_area.eyebrow_header_color == 'teal' %}
+    .wlt-sliding-panels-support {
+      .eyebrow {
+        border-left:3px #71DDB7 solid;
+      }
+    }
+  {% endif %}
+}
