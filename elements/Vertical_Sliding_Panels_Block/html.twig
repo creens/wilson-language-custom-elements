@@ -1,26 +1,28 @@
 <div class="wlt-sliding-panels">
-    {% for item in content.sliding_panels.panels %}
-        <div class="wlt-vert-panel" id="wlt-vert-panel-{{ loop.index }}">
-          <div class="vert-cover" style="background-color:{{ item.color }}">
-            <div class="icon" style="background-color:{{ item.color }}">
-              {% if item.main_graphic == 'number' %}
-              	<span class="number">{{ loop.index }}</span>
-              {% elseif item.main_graphic == 'icon' %}
-              	{{ item.icon.svgCode }}
-              {% endif %}
-            </div>
-            <div class="wlt-vert-text">
-              <div class="title" style="color:{{ item.color }}">{{ item.title }}</div>
-              <div class="description" style="color:{{ item.color }}">{{ item.description }}</div>
-              <img src="/wp-content/uploads/2024/05/icon-up-arrow.svg" alt="Arrow pointing up, indicating more content" />
-            </div>
-          </div>
-          <div class="wlt-vert-info" style="background-color:{{ item.color }}">
-			{{ item.more_info }}
-          </div>
-        </div>
-    {% endfor %}
+  {% for item in content.sliding_panels.panels %}
+  <div class="wlt-vert-panel" id="wlt-vert-panel-{{ loop.index }}">
+    <div class="vert-cover {{ item.color }}">
+      <div id="wlt-panel-icon-{{ loop.index }}" class="icon-bkgd {{ item.color }}">
+        {% if item.graphic == 'wlt-number' %}
+          <span class="number {{ item.color }}">{{ loop.index }}</span>
+        {% elseif item.graphic == 'wlt-icon' %}
+        <div id="icon-{{ loop.index }}" class="icon"></div>
+        {% endif %}
+      </div>
+      <div class="wlt-vert-text">
+        <div class="title" style="color:{{ item.color }}">{{ item.title }}</div>
+        <div class="description">{{ item.description }}</div>
+        <img src="/wp-content/uploads/2024/05/icon-up-arrow.svg" alt="Arrow pointing up, indicating more content" />
+      </div>
+      <div class="pattern {{item.background_pattern}}"></div>
+    </div>
+    <div class="wlt-vert-info {{ item.color }}">
+      {{ item.more_info }}
+    </div>
+  </div>
+  {% endfor %}
 </div>
+
 <div class="wlt-sliding-panels-support">
   <div class="eyebrow">{{ content.content_area.eyebrow_header_text }}</div>
   <h2>{{ content.content_area.headline }}</h2>

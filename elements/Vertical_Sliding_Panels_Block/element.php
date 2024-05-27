@@ -101,15 +101,23 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         "color",
         "Color",
         [],
-        ['type' => 'color', 'layout' => 'vertical'],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'wilson-blue', 'text' => 'Wilson Blue'], '1' => ['text' => 'Implementation Teal', 'value' => 'implementation-teal'], '2' => ['text' => 'Fun Gold', 'value' => 'fun-gold'], '3' => ['text' => 'Fundations Salmon', 'value' => 'fundations-salmon'], '4' => ['text' => 'Fundations Purple', 'value' => 'fundations-purple'], '5' => ['text' => 'Fundations Blue', 'value' => 'fundations-blue'], '6' => ['text' => 'Fundations Teal', 'value' => 'fundations-teal']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
         false,
         false,
         [],
       ), c(
-        "background_pattern_icon",
-        "Background Pattern Icon",
+        "background_pattern",
+        "Background Pattern",
         [],
-        ['type' => 'icon', 'layout' => 'vertical'],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'abc-paper', 'text' => 'ABC Paper'], '1' => ['text' => 'Open Book', 'value' => 'open-book'], '2' => ['text' => 'Bundles', 'value' => 'bundles'], '3' => ['text' => 'Digital', 'value' => 'digital'], '4' => ['text' => 'Graded Paper', 'value' => 'graded-paper'], '5' => ['text' => 'Interactive', 'value' => 'interactive'], '6' => ['text' => 'Tiers of Instruction', 'value' => 'tiers']]],
+        false,
+        false,
+        [],
+      ), c(
+        "graphic",
+        "Graphic",
+        [],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'wlt-icon', 'text' => 'Icon'], '1' => ['text' => 'Number', 'value' => 'wlt-number']]],
         false,
         false,
         [],
@@ -137,24 +145,8 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         false,
         false,
         [],
-      ), c(
-        "graphic",
-        "Graphic",
-        [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'number', 'text' => 'Number'], '1' => ['text' => 'Icon', 'value' => 'icon']]],
-        false,
-        false,
-        [],
-      ), c(
-        "icon",
-        "Icon",
-        [],
-        ['type' => 'icon', 'layout' => 'vertical', 'condition' => ['0' => ['0' => ['path' => 'content.sliding_panels.panels.main_graphic', 'operand' => 'equals', 'value' => 'icon']]]],
-        false,
-        false,
-        [],
       )],
-        ['type' => 'repeater', 'layout' => 'vertical', 'repeaterOptions' => ['titleTemplate' => '', 'defaultTitle' => '', 'buttonName' => 'Add Panel']],
+        ['type' => 'repeater', 'layout' => 'vertical', 'repeaterOptions' => ['titleTemplate' => '', 'defaultTitle' => '', 'buttonName' => 'Add Panel', 'galleryMode' => false]],
         false,
         false,
         [],
@@ -239,34 +231,57 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return ['0' =>  ['inlineScripts' => ['const panels = document.querySelectorAll(\'.wlt-vert-panel\');
+        return ['0' =>  ['inlineScripts' => ['const panels = document.querySelectorAll(".wlt-vert-panel");
 
-function togglePanelInfo(panel) {
-  const cover = panel.querySelector(\'.vert-cover\');
-  const info = panel.querySelector(\'.wlt-vert-info\');
-  const arrow = panel.querySelector(\'.vert-cover .wlt-vert-text img\');
-  const isExpanded = info.classList.contains(\'expanded\');
-
-  if (isExpanded) {
-    cover.classList.remove(\'collapsed\');
-    info.classList.remove(\'expanded\');
-    arrow.classList.remove(\'down\');
-  } else {
-    cover.classList.add(\'collapsed\');
-    info.classList.add(\'expanded\');
-    arrow.classList.add(\'down\');
-  }
+function togglePanelInfo(e) {
+   let t = e.querySelector(".vert-cover"),
+    l = e.querySelector(".wlt-vert-info"),
+    s = e.querySelector(".vert-cover .wlt-vert-text img"),
+    r = l.classList.contains("expanded");
+  r ? (t.classList.remove("collapsed"), l.classList.remove("expanded"), s.classList.remove("down")) : (t.classList.add("collapsed"), l.classList.add("expanded"), s.classList.add("down"));
 }
 
-panels.forEach(panel => {
-  const cover = panel.querySelector(\'.vert-cover\');
-  cover.addEventListener(\'click\', () => {
-    // Check if we\'re on a mobile device
-    if (window.innerWidth < 768) {
-      togglePanelInfo(panel);
+panels.forEach((panel) => {
+  let t = panel.querySelector(".vert-cover");
+  if (window.navigator.maxTouchPoints > 0) {
+    t.addEventListener("touchstart", () => togglePanelInfo(panel)); // Use panel captured outside
+  } else {
+    t.addEventListener("click", () => togglePanelInfo(panel)); // Use panel captured outside
+  }
+});
+','window.addEventListener(\'DOMContentLoaded\', (event) => {
+  function replaceWithSVG(targetElementId, imageUrl) {
+  fetch(imageUrl)
+    .then(response => response.text())
+    .then(data => {
+      const targetElement = document.getElementById(targetElementId);
+      if (targetElement) {
+        targetElement.outerHTML = data;
+      } else {
+        console.warn("Target element not found for ID:", targetElementId);
+      }
+    })
+    .catch(error => console.error("Error fetching SVG:", error));
+}
+
+  const panels = document.querySelectorAll(\'.wlt-vert-panel\');
+
+  for (const panel of panels) {
+    // Check if the panel has an icon element
+    const iconElement = panel.querySelector(\'.icon\');
+    if (iconElement) {
+      const backgroundPattern = panel.querySelector(\'.pattern\').classList[1];
+
+      // Use the icon element\'s ID directly (assuming it\'s unique)
+      const targetElementId = iconElement.id;
+
+      if (targetElementId) {
+    replaceWithSVG(targetElementId, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + backgroundPattern + ".svg");
+  }
     }
-  });
-});'],],];
+  }
+});
+'],],];
     }
 
     static function settings()
@@ -311,7 +326,7 @@ panels.forEach(panel => {
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '4' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '5' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
