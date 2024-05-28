@@ -147,26 +147,26 @@
           flex:1;
           position:relative;
           z-index:10;
-        	.title, .description {
-              font-size:18px;
-              text-align:center;
-              text-transform:uppercase;
-            }
-            .title {
-              font-weight:600;
-              margin-bottom:9px;
-            }
+          .title, .description {
+            font-size:18px;
+            text-align:center;
+            text-transform:uppercase;
+          }
+          .title {
+            font-weight:600;
+            margin-bottom:9px;
+          }
           .description {
             margin-bottom:21px;
           }
-            img {
-              margin-top:auto;
-              opacity:.13;
-              transition:all 250ms ease;
-              &.down {
-                transform:rotate(180deg);
-              }
+          img {
+            margin-top:auto;
+            opacity:.18;
+            transition:all 250ms ease;
+            &.down {
+              transform:rotate(180deg);
             }
+          }
         }
       }
       .pattern {
@@ -444,6 +444,11 @@
           transition: transform 0.2s ease-in-out;
           &:hover {
             transform:translateY(-75%);
+            .wlt-vert-text {
+                img {
+                 transform:rotate(180deg);
+                }
+            }
           }
         }
       }
