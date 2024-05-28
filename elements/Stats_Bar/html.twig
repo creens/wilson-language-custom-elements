@@ -1,7 +1,7 @@
 {% if content.content.items is empty %}
 <div class="wlt-stats-bar_item">
 	<h3 data-target='{{ item.number }}' class='wlt-stats-bar_number'>
-         0
+         {{ item.number }}
     </h3>
     <p class='wlt-stats-bar_text'>
        {{ item.text }}
@@ -11,7 +11,7 @@
 {% for item in content.content.items %}
   <div class='wlt-stats-bar_item'>
     <h3 data-target='{{ item.number }}' class='wlt-stats-bar_number' {{ dataContentEditablePropertyPath('content.content.items[' ~ loop.index0 ~ '].number') }}>
-     0
+     {{ item.number }}
     </h3>
     <p class='wlt-stats-bar_text' {{ dataContentEditablePropertyPath('content.content.items[' ~ loop.index0 ~ '].text') }}>
       {{ item.text | default('students helped') }}
