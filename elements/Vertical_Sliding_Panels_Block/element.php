@@ -231,57 +231,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return ['0' =>  ['inlineScripts' => ['const panels = document.querySelectorAll(".wlt-vert-panel");
-
-function togglePanelInfo(e) {
-   let t = e.querySelector(".vert-cover"),
-    l = e.querySelector(".wlt-vert-info"),
-    s = e.querySelector(".vert-cover .wlt-vert-text img"),
-    r = l.classList.contains("expanded");
-  r ? (t.classList.remove("collapsed"), l.classList.remove("expanded"), s.classList.remove("down")) : (t.classList.add("collapsed"), l.classList.add("expanded"), s.classList.add("down"));
-}
-
-panels.forEach((panel) => {
-  let t = panel.querySelector(".vert-cover");
-  if (window.navigator.maxTouchPoints > 0) {
-    t.addEventListener("touchstart", () => togglePanelInfo(panel)); // Use panel captured outside
-  } else {
-    t.addEventListener("click", () => togglePanelInfo(panel)); // Use panel captured outside
-  }
-});
-','window.addEventListener(\'DOMContentLoaded\', (event) => {
-  function replaceWithSVG(targetElementId, imageUrl) {
-  fetch(imageUrl)
-    .then(response => response.text())
-    .then(data => {
-      const targetElement = document.getElementById(targetElementId);
-      if (targetElement) {
-        targetElement.outerHTML = data;
-      } else {
-        console.warn("Target element not found for ID:", targetElementId);
-      }
-    })
-    .catch(error => console.error("Error fetching SVG:", error));
-}
-
-  const panels = document.querySelectorAll(\'.wlt-vert-panel\');
-
-  for (const panel of panels) {
-    // Check if the panel has an icon element
-    const iconElement = panel.querySelector(\'.icon\');
-    if (iconElement) {
-      const backgroundPattern = panel.querySelector(\'.pattern\').classList[1];
-
-      // Use the icon element\'s ID directly (assuming it\'s unique)
-      const targetElementId = iconElement.id;
-
-      if (targetElementId) {
-    replaceWithSVG(targetElementId, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + backgroundPattern + ".svg");
-  }
-    }
-  }
-});
-'],],];
+        return ['0' =>  ['inlineScripts' => ['const panels=document.querySelectorAll(".wlt-vert-panel");function togglePanelInfo(e){let t=e.querySelector(".vert-cover"),l=e.querySelector(".wlt-vert-info"),s=e.querySelector(".vert-cover .wlt-vert-text img");l.classList.contains("expanded")?(t.classList.remove("collapsed"),l.classList.remove("expanded"),s.classList.remove("down")):(t.classList.add("collapsed"),l.classList.add("expanded"),s.classList.add("down"))}panels.forEach(e=>{let t=e.querySelector(".vert-cover");window.navigator.maxTouchPoints>0?t.addEventListener("touchstart",()=>togglePanelInfo(e)):t.addEventListener("click",()=>togglePanelInfo(e))});const panelsContainer=document.querySelector(".wlt-sliding-panels");if(panelsContainer){let e=panelsContainer.querySelector(".wlt-vert-panel"),t=panelsContainer.querySelector(".vert-cover");if(e){let l=t.classList.length>1?t.classList[1]:"";t&&panelsContainer.classList.add(l)}}','window.addEventListener("DOMContentLoaded",e=>{function t(e,t){fetch(t).then(e=>e.text()).then(t=>{let n=document.getElementById(e);n?n.outerHTML=t:console.warn("Target element not found for ID:",e)}).catch(e=>console.error("Error fetching SVG:",e))}let n=document.querySelectorAll(".wlt-vert-panel");for(let l of n){let o=l.querySelector(".icon");if(o){let r=l.querySelector(".pattern").classList[1],a=o.id;a&&t(a,"https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-"+r+".svg")}}});'],],];
     }
 
     static function settings()
@@ -326,7 +276,7 @@ panels.forEach((panel) => {
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
