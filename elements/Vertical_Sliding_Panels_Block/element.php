@@ -231,7 +231,53 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return ['0' =>  ['inlineScripts' => ['const panels=document.querySelectorAll(".wlt-vert-panel");function togglePanelInfo(e){let t=e.querySelector(".vert-cover"),l=e.querySelector(".wlt-vert-info"),s=e.querySelector(".vert-cover .wlt-vert-text img");l.classList.contains("expanded")?(t.classList.remove("collapsed"),l.classList.remove("expanded"),s.classList.remove("down")):(t.classList.add("collapsed"),l.classList.add("expanded"),s.classList.add("down"))}panels.forEach(e=>{let t=e.querySelector(".vert-cover");window.navigator.maxTouchPoints>0?t.addEventListener("touchstart",()=>togglePanelInfo(e)):t.addEventListener("click",()=>togglePanelInfo(e))});const panelsContainer=document.querySelector(".wlt-sliding-panels");if(panelsContainer){let e=panelsContainer.querySelector(".wlt-vert-panel"),t=panelsContainer.querySelector(".vert-cover");if(e){let l=t.classList.length>1?t.classList[1]:"";t&&panelsContainer.classList.add(l)}}','window.addEventListener("DOMContentLoaded",e=>{function t(e,t){fetch(t).then(e=>e.text()).then(t=>{let n=document.getElementById(e);n?n.outerHTML=t:console.warn("Target element not found for ID:",e)}).catch(e=>console.error("Error fetching SVG:",e))}let n=document.querySelectorAll(".wlt-vert-panel");for(let l of n){let o=l.querySelector(".icon");if(o){let r=l.querySelector(".pattern").classList[1],a=o.id;a&&t(a,"https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-"+r+".svg")}}});'],],];
+        return ['0' =>  ['inlineScripts' => ['const panels = document.querySelectorAll(".wlt-vert-panel");
+
+function togglePanel(panel) {
+  const cover = panel.querySelector(".vert-cover"),
+    info = panel.querySelector(".wlt-vert-info"),
+    img = panel.querySelector(".wlt-vert-text img");
+
+  cover.classList.toggle("collapsed");
+  info.classList.toggle("expanded");
+  img.classList.toggle("down");
+}
+
+panels.forEach(panel => {
+  const cover = panel.querySelector(".vert-cover");
+  cover.addEventListener("click", () => togglePanel(panel));
+});
+
+const panelsContainer = document.querySelector(".wlt-sliding-panels");
+if (panelsContainer) {
+  const firstPanel = panelsContainer.querySelector(".wlt-vert-panel"),
+        cover = panelsContainer.querySelector(".vert-cover");
+  if (firstPanel && cover) {
+    const className = cover.classList.length > 1 ? cover.classList[1] : "";
+    if (className) {
+      panelsContainer.classList.add(className);
+    }
+  }
+}','window.addEventListener("DOMContentLoaded", (e) => {
+    function t(e, t) {
+        fetch(t)
+            .then((e) => e.text())
+            .then((t) => {
+                let n = document.getElementById(e);
+                n ? (n.outerHTML = t) : console.warn("Target element not found for ID:", e);
+            })
+            .catch((e) => console.error("Error fetching SVG:", e));
+    }
+    let n = document.querySelectorAll(".wlt-vert-panel");
+    for (let l of n) {
+        let o = l.querySelector(".icon");
+        if (o) {
+            let r = l.querySelector(".pattern").classList[1],
+                a = o.id;
+            a && t(a, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + r + ".svg");
+        }
+    }
+});'],],];
     }
 
     static function settings()
@@ -276,7 +322,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '4' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '5' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
     }
 
     static function additionalClasses()
