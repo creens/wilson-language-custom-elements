@@ -1,0 +1,18 @@
+<div class="breakdance-swiper-wrapper" data-swiper-id="%%ID%%">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+      {% for item in content.content.slides %}
+           <div class="swiper-slide">
+            <div class="wlt-slide">
+              <div class="quote"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-quote.svg" alt="Blue quotation mark" /></div>
+                <div class="wlt-slider-content">
+                  {{ item.quote }}
+                  <p class="attr">{{ item.attribution }}</p>
+              </div>
+            </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+    {{ macros.AtomV1SwiperPaginationAndArrowsHtml(design.slider) }}
+</div>
