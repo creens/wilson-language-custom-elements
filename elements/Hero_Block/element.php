@@ -55,7 +55,7 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function slug()
     {
-        return get_class();
+        return __CLASS__;
     }
 
     static function template()
@@ -93,7 +93,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "color",
         "Color",
         [],
-        ['type' => 'button_bar', 'layout' => 'inline', 'items' => ['0' => ['value' => 'blue', 'text' => 'Blue'], '1' => ['text' => 'Gold', 'value' => 'gold'], '2' => ['text' => 'Teal', 'value' => 'teal']]],
+        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['value' => 'blue', 'text' => 'Blue'], ['text' => 'Gold', 'value' => 'gold'], ['text' => 'Teal', 'value' => 'teal']]],
         false,
         false,
         [],
@@ -109,7 +109,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "media_type",
         "Media Type",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'image', 'text' => 'Image'], '1' => ['text' => 'Video', 'value' => 'video'], '2' => ['text' => 'None', 'value' => 'none']]],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'image', 'text' => 'Image'], ['text' => 'Video', 'value' => 'video'], ['text' => 'None', 'value' => 'none']]],
         false,
         false,
         [],
@@ -117,7 +117,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "image",
         "Image",
         [],
-        ['type' => 'wpmedia', 'layout' => 'vertical', 'condition' => ['0' => ['0' => ['path' => 'design.hero_media.media_type', 'operand' => 'equals', 'value' => 'image']]]],
+        ['type' => 'wpmedia', 'layout' => 'vertical', 'condition' => [[['path' => 'design.hero_media.media_type', 'operand' => 'equals', 'value' => 'image']]]],
         false,
         false,
         [],
@@ -125,7 +125,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "video",
         "Video",
         [],
-        ['type' => 'video', 'layout' => 'vertical', 'videoOptions' => ['providers' => ['0' => 'youtube', '1' => 'vimeo', '2' => 'dailymotion']], 'condition' => ['0' => ['0' => ['path' => 'design.hero_media.media_type', 'operand' => 'equals', 'value' => 'video']]]],
+        ['type' => 'video', 'layout' => 'vertical', 'videoOptions' => ['providers' => ['youtube', 'vimeo', 'dailymotion']], 'condition' => [[['path' => 'design.hero_media.media_type', 'operand' => 'equals', 'value' => 'video']]]],
         false,
         false,
         [],
@@ -194,7 +194,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "quantity",
         "Quantity",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'one', 'text' => 'One'], '1' => ['text' => 'Two', 'value' => 'two']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'one', 'text' => 'One'], ['text' => 'Two', 'value' => 'two']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
         false,
         false,
         [],
@@ -202,12 +202,12 @@ class HeroBlock extends \Breakdance\Elements\Element
       "EssentialElements\\AtomV1ButtonContent",
       "Button 1",
       "button_1",
-       ['condition' => ['0' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'one']], '1' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+       ['condition' => [[['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'one']], [['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
      ), getPresetSection(
       "EssentialElements\\AtomV1ButtonContent",
       "Button 2",
       "button_2",
-       ['condition' => ['0' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+       ['condition' => [[['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
      )],
         ['type' => 'section', 'layout' => 'vertical'],
         false,
@@ -302,7 +302,7 @@ if (video) {
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['accepts' => 'string', 'path' => 'content.content.text'], '4' => ['accepts' => 'string', 'path' => 'content.content.link.url'], '5' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], '6' => ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], '7' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '8' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '9' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '10' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '11' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '12' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '13' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '14' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '15' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '16' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '17' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '18' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '19' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '20' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '21' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return [['accepts' => 'string', 'path' => 'content.content.text'], ['accepts' => 'string', 'path' => 'content.content.link.url'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url']];
     }
 
     static function additionalClasses()

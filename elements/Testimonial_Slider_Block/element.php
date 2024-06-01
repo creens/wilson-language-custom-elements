@@ -55,7 +55,7 @@ class TestimonialSliderBlock extends \Breakdance\Elements\Element
 
     static function slug()
     {
-        return get_class();
+        return __CLASS__;
     }
 
     static function template()
@@ -143,7 +143,16 @@ class TestimonialSliderBlock extends \Breakdance\Elements\Element
   selector:\'%%SELECTOR%%\',
   settings:{{ design.slider.settings|json_encode }},
   paginationSettings:{{ design.slider.pagination|json_encode }},
-});'],'styles' => ['%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/swiper@8/swiper-bundle.min.css','%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/swiper@8/breakdance-swiper-preset-defaults.css'],],];
+});','const wrapper = document.querySelector(\'.breakdance-swiper-wrapper\');
+  if(wrapper) { // Check if wrapper exists
+    const slides = wrapper.querySelectorAll(\'.swiper-slide\');
+    if (slides.length === 1) {
+      
+      wrapper.classList.add(\'single-slide\');
+    }
+  }
+
+'],'styles' => ['%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/swiper@8/swiper-bundle.min.css','%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/swiper@8/breakdance-swiper-preset-defaults.css'],],];
     }
 
     static function settings()
@@ -175,10 +184,11 @@ class TestimonialSliderBlock extends \Breakdance\Elements\Element
 
 'onMountedElement' => [['script' => 'window.BreakdanceSwiper().update({
   id: \'%%ID%%\',
-  selector:\'%%SELECTOR%%\',
-  settings:{{ design.slider.settings|json_encode }},
-  paginationSettings:{{ design.slider.pagination|json_encode }},
-});',
+  selector: \'%%SELECTOR%%\',
+  settings: {{ design.slider.settings|json_encode }},
+  paginationSettings: {{ design.slider.pagination|json_encode }},
+});
+',
 ],],];
     }
 
@@ -209,7 +219,7 @@ class TestimonialSliderBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return [];
     }
 
     static function additionalClasses()

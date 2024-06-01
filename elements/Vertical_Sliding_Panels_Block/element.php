@@ -55,7 +55,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
 
     static function slug()
     {
-        return get_class();
+        return __CLASS__;
     }
 
     static function template()
@@ -101,7 +101,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         "color",
         "Color",
         [],
-        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'wilson-blue', 'text' => 'Wilson Blue'], '1' => ['text' => 'Implementation Teal', 'value' => 'implementation-teal'], '2' => ['text' => 'Fun Gold', 'value' => 'fun-gold'], '3' => ['text' => 'Fundations Salmon', 'value' => 'fundations-salmon'], '4' => ['text' => 'Fundations Purple', 'value' => 'fundations-purple'], '5' => ['text' => 'Fundations Blue', 'value' => 'fundations-blue'], '6' => ['text' => 'Fundations Teal', 'value' => 'fundations-teal']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'wilson-blue', 'text' => 'Wilson Blue'], ['text' => 'Implementation Teal', 'value' => 'implementation-teal'], ['text' => 'Fun Gold', 'value' => 'fun-gold'], ['text' => 'Fundations Salmon', 'value' => 'fundations-salmon'], ['text' => 'Fundations Purple', 'value' => 'fundations-purple'], ['text' => 'Fundations Blue', 'value' => 'fundations-blue'], ['text' => 'Fundations Teal', 'value' => 'fundations-teal']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
         false,
         false,
         [],
@@ -109,7 +109,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         "background_pattern",
         "Background Pattern",
         [],
-        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'abc-paper', 'text' => 'ABC Paper'], '1' => ['text' => 'Open Book', 'value' => 'open-book'], '2' => ['text' => 'Bundles', 'value' => 'bundles'], '3' => ['text' => 'Digital', 'value' => 'digital'], '4' => ['text' => 'Graded Paper', 'value' => 'graded-paper'], '5' => ['text' => 'Interactive', 'value' => 'interactive'], '6' => ['text' => 'Tiers of Instruction', 'value' => 'tiers']]],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'abc-paper', 'text' => 'ABC Paper'], ['text' => 'Open Book', 'value' => 'open-book'], ['text' => 'Bundles', 'value' => 'bundles'], ['text' => 'Digital', 'value' => 'digital'], ['text' => 'Graded Paper', 'value' => 'graded-paper'], ['text' => 'Interactive', 'value' => 'interactive'], ['text' => 'Tiers of Instruction', 'value' => 'tiers']]],
         false,
         false,
         [],
@@ -117,7 +117,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         "graphic",
         "Graphic",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'wlt-icon', 'text' => 'Icon'], '1' => ['text' => 'Number', 'value' => 'wlt-number']]],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'wlt-icon', 'text' => 'Icon'], ['text' => 'Number', 'value' => 'wlt-number']]],
         false,
         false,
         [],
@@ -162,7 +162,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         "eyebrow_header_color",
         "Eyebrow Header Color",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'blue', 'text' => 'Blue'], '1' => ['text' => 'Gold', 'value' => 'gold'], '2' => ['text' => 'Teal', 'value' => 'teal']]],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'blue', 'text' => 'Blue'], ['text' => 'Gold', 'value' => 'gold'], ['text' => 'Teal', 'value' => 'teal']]],
         false,
         false,
         [],
@@ -202,7 +202,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         "quantity",
         "Quantity",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => ['0' => ['value' => 'one', 'text' => 'One'], '1' => ['text' => 'Two', 'value' => 'two']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'one', 'text' => 'One'], ['text' => 'Two', 'value' => 'two']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
         false,
         false,
         [],
@@ -210,12 +210,12 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
       "EssentialElements\\AtomV1ButtonContent",
       "Button 1",
       "button_1",
-       ['condition' => ['0' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'one']], '1' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+       ['condition' => [[['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'one']], [['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
      ), getPresetSection(
       "EssentialElements\\AtomV1ButtonContent",
       "Button 2",
       "button_2",
-       ['condition' => ['0' => ['0' => ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+       ['condition' => [[['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
      )],
         ['type' => 'section', 'layout' => 'vertical'],
         false,
@@ -277,7 +277,32 @@ if (panelsContainer) {
             a && t(a, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + r + ".svg");
         }
     }
-});'],],];
+});','const bounceAnimation = (element) => {
+ element.classList.add(\'bounce\');
+};
+
+const sections = document.querySelectorAll(\'.wlt-vert-panel\');
+const delay = 500; // Adjust delay in milliseconds
+const rootMargin = \'100px 0px\'; // Margin for top and bottom observation
+
+const observer = new IntersectionObserver((entries) => {
+ entries.forEach((entry, index) => {
+   const iconBkgd = entry.target.querySelector(\'.icon-bkgd\');
+ if (entry.isIntersecting) {
+  setTimeout(() => {
+    bounceAnimation(iconBkgd);
+  }, index * delay); // Apply delay based on element index
+ } else {
+  // Element no longer intersecting, reset animation
+  iconBkgd.classList.remove(\'bounce\');
+ }
+ });
+}, {
+ threshold: 0.75, // Observe when 75% of element is visible (adjust if needed)
+ rootMargin, // Observe with margin for scrolling past
+});
+
+sections.forEach(section => observer.observe(section));'],],];
     }
 
     static function settings()
@@ -322,7 +347,7 @@ if (panelsContainer) {
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '4' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '5' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return [];
     }
 
     static function additionalClasses()
