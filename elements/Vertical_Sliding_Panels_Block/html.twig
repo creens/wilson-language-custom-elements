@@ -1,46 +1,46 @@
-<div class="wlt-sliding-panels">
-  {% for item in content.sliding_panels.panels %}
-  <div class="wlt-vert-panel" id="wlt-vert-panel-{{ loop.index }}">
-    <div class="vert-cover {{ item.color }}">
-      <div id="wlt-panel-icon-{{ loop.index }}" class="icon-bkgd {{ item.color }}">
-        {% if item.graphic == 'wlt-number' %}
-          <span class="number {{ item.color }}">{{ loop.index }}</span>
-        {% elseif item.graphic == 'wlt-icon' %}
-        <div id="icon-{{ loop.index }}" class="icon"></div>
-        {% endif %}
+<div class="wlt-sliding-panels  {{ design.design.alignment == 'panels-left' ? 'left' : 'right' }}">
+    {% for item in content.sliding_panels.panels %}
+    <div class="wlt-vert-panel" id="wlt-vert-panel-{{ loop.index }}">
+      <div class="vert-cover {{ item.color }}">
+        <div id="wlt-panel-icon-{{ loop.index }}" class="icon-bkgd {{ item.color }}">
+          {% if item.graphic == 'wlt-number' %}
+            <span class="number {{ item.color }}">{{ loop.index }}</span>
+          {% elseif item.graphic == 'wlt-icon' %}
+          <div id="icon-{{ loop.index }}" class="icon"></div>
+          {% endif %}
+        </div>
+        <div class="wlt-vert-text">
+          <div class="title">{{ item.title }}</div>
+          <div class="description">{{ item.description }}</div>
+          <img src="/wp-content/uploads/2024/05/icon-up-arrow.svg" alt="Arrow pointing up, indicating more content" />
+        </div>
+        <div class="pattern {{item.background_pattern}}"></div>
       </div>
-      <div class="wlt-vert-text">
-        <div class="title">{{ item.title }}</div>
-        <div class="description">{{ item.description }}</div>
-        <img src="/wp-content/uploads/2024/05/icon-up-arrow.svg" alt="Arrow pointing up, indicating more content" />
+      <div class="wlt-vert-info {{ item.color }}">
+        {{ item.more_info }}
       </div>
-      <div class="pattern {{item.background_pattern}}"></div>
     </div>
-    <div class="wlt-vert-info {{ item.color }}">
-      {{ item.more_info }}
+    {% endfor %}
+  </div>
+
+  <div class="wlt-sliding-panels-support {{ design.design.alignment == 'panels-left' ? 'right' : 'left' }}">
+    <div class="eyebrow">{{ content.content_area.eyebrow_header_text }}</div>
+    <h2>{{ content.content_area.headline }}</h2>
+    {{ content.content_area.body_copy }}
+    {% if content.button_s_.quantity is not empty %}
+        <div class="wlt-btns">
+          {% if (content.button_s_.quantity == "one") %}
+
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+
+              {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+
+              {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+
+          {% endif %} 
+        </div>
+     {% endif %} 
     </div>
   </div>
-  {% endfor %}
-</div>
-
-<div class="wlt-sliding-panels-support">
-  <div class="eyebrow">{{ content.content_area.eyebrow_header_text }}</div>
-  <h2>{{ content.content_area.headline }}</h2>
-  {{ content.content_area.body_copy }}
-  {% if content.button_s_.quantity is not empty %}
-      <div class="wlt-btns">
-        {% if (content.button_s_.quantity == "one") %}
-
-          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
-
-            {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
-
-          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
-
-            {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
-
-        {% endif %} 
-      </div>
-   {% endif %} 
-  </div>
-</div>

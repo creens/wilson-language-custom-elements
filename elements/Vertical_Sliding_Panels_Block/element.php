@@ -86,7 +86,23 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
 
     static function designControls()
     {
-        return [];
+        return [c(
+        "design",
+        "Design",
+        [c(
+        "alignment",
+        "Alignment",
+        [],
+        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['value' => 'panels-left', 'text' => 'Panels Left'], ['text' => 'Panels Right', 'value' => 'panels-right']]],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section'],
+        false,
+        false,
+        [],
+      )];
     }
 
     static function contentControls()
@@ -251,12 +267,17 @@ panels.forEach(panel => {
 const panelsContainer = document.querySelector(".wlt-sliding-panels");
 if (panelsContainer) {
   const firstPanel = panelsContainer.querySelector(".wlt-vert-panel"),
-        cover = panelsContainer.querySelector(".vert-cover");
-  if (firstPanel && cover) {
-    const className = cover.classList.length > 1 ? cover.classList[1] : "";
-    if (className) {
-      panelsContainer.classList.add(className);
+    thirdPanel = panelsContainer.querySelectorAll(".wlt-vert-panel")[2]; // Assuming third panel is at index 2
+  if (firstPanel && thirdPanel) {
+    const firstPanelColor = firstPanel.querySelector(".vert-cover").classList[1]; // Assuming color class is the second class
+    const thirdPanelColor = thirdPanel.querySelector(".vert-cover").classList[1];
+
+    if (panelsContainer.classList.contains("left")) {
+      panelsContainer.classList.add(firstPanelColor);
+    } else if (panelsContainer.classList.contains("right")) {
+      panelsContainer.classList.add(thirdPanelColor);
     }
+
   }
 }','window.addEventListener("DOMContentLoaded", (e) => {
     function t(e, t) {
@@ -298,7 +319,7 @@ const observer = new IntersectionObserver((entries) => {
  }
  });
 }, {
- threshold: 0.75, // Observe when 75% of element is visible (adjust if needed)
+ threshold: .65, // Observe when 75% of element is visible (adjust if needed)
  rootMargin, // Observe with margin for scrolling past
 });
 
