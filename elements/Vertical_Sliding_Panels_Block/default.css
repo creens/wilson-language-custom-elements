@@ -72,11 +72,11 @@
         }
         &.fundations-purple {
           color:#3C1D44;
-          background:#A273AD;
+          background:#CCB3D3;
         }
         &.fundations-blue {
           color:#001F2C;
-          background:#009CDE;
+          background:#45C8FF;
         }
         .icon-bkgd {
           margin:33px 0;
@@ -137,28 +137,28 @@
             color:#CE5F49;
             background:#FFE4DE;
             svg {
-              fill:#E8927C;
+              fill:#BC3B1B;
             }
           }
           &.fundations-teal {
             color:#2A7F7A;
             background:#CEF1EF;
             svg {
-              fill:#5CB8B2;
+              fill:#03534D;
             }
           }
           &.fundations-purple {
             color:#7C3B8C;
             background:#F5E5F9;
             svg {
-              fill:#A273AD;
+              fill:#4A2952;
             }
           }
           &.fundations-blue {
             color:#014B6A;
             background:#C9EFFF;
             svg {
-              fill:#009CDE;
+              fill:#014B6A;
             }
           }
         }
@@ -214,6 +214,12 @@
           background:url('https://wilsonlanguage.local/wp-content/uploads/2024/05/pattern-digital.svg');
           background-size:cover;
         }
+        &.fundations {
+          background:url('https://wilsonlanguage.local/wp-content/uploads/2024/06/pattern-fundations.svg');
+          background-size: cover;
+          opacity:.3;
+
+        }
         &.graded-paper {
           background:url('https://wilsonlanguage.local/wp-content/uploads/2024/05/pattern-graded-paper.svg');
           background-size:cover;
@@ -230,7 +236,7 @@
       .wlt-vert-info {
         display:flex;
         flex-direction:column;
-    justify-content: flex-end;
+        justify-content: flex-end;
         padding:30px;
         height:100%;
         position:absolute;
@@ -262,7 +268,7 @@
         }
         &.fundations-purple {
           color:#3C1D44;
-          background:#A273AD;
+          background:#CCB3D3;
         }
         &.fundations-blue {
           color:#001F2C;
@@ -291,6 +297,12 @@
     }
     .wlt-btns {
       margin-top:15px;
+      & > * {
+         margin-bottom:15px;
+      }
+      & > *:first-child {
+         margin-right:15px;
+      }
     }
   }
 }
@@ -448,7 +460,7 @@
     }
     .wlt-sliding-panels-support {
       margin:0 auto 0 0;
-      width:25%;
+      width:23%;
     }
   }
 }

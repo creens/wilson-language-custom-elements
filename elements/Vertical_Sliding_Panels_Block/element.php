@@ -125,7 +125,7 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         "background_pattern",
         "Background Pattern",
         [],
-        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'abc-paper', 'text' => 'ABC Paper'], ['text' => 'Open Book', 'value' => 'open-book'], ['text' => 'Bundles', 'value' => 'bundles'], ['text' => 'Digital', 'value' => 'digital'], ['text' => 'Graded Paper', 'value' => 'graded-paper'], ['text' => 'Interactive', 'value' => 'interactive'], ['text' => 'Tiers of Instruction', 'value' => 'tiers']]],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'abc-paper', 'text' => 'ABC Paper'], ['text' => 'Open Book', 'value' => 'open-book'], ['text' => 'Bundles', 'value' => 'bundles'], ['text' => 'Digital', 'value' => 'digital'], ['text' => 'Graded Paper', 'value' => 'graded-paper'], ['text' => 'Interactive', 'value' => 'interactive'], ['text' => 'Tiers of Instruction', 'value' => 'tiers'], ['text' => 'Fundations', 'value' => 'fundations'], ['text' => 'Fundations', 'value' => 'fundations']]],
         false,
         false,
         [],

@@ -27,20 +27,20 @@
     <div class="eyebrow">{{ content.content_area.eyebrow_header_text }}</div>
     <h2>{{ content.content_area.headline }}</h2>
     {{ content.content_area.body_copy }}
-    {% if content.button_s_.quantity is not empty %}
-        <div class="wlt-btns">
-          {% if (content.button_s_.quantity == "one") %}
+	 {% if content.button_s_.quantity is not empty %}
+      <div class="wlt-btns">
+        {% if (content.button_s_.quantity == "one") %}
 
-            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
 
-              {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+            {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
 
-            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'hero-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'primary', 'content.button_s_.button_1.text') }}
 
-              {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'hero-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'wlt-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
 
-          {% endif %} 
-        </div>
-     {% endif %} 
+        {% endif %} 
+      </div>
+   {% endif %} 
     </div>
   </div>
