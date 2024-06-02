@@ -1,0 +1,88 @@
+%%SELECTOR%% {
+ /** animations **/
+ @keyframes bounce {
+    0%, 20% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    50%, 80% {
+      transform: translateY(15px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+{% if content.content_area.eyebrow_header_color == 'blue' %}
+    .wlt-horiz-panels-support {
+      .eyebrow {
+        border-left:3px #003DA5 solid;
+      }
+      .wlt-btns {
+        .wlt-btn-2 {
+          color:#003DA5;
+          background:white;
+          border:3px solid #003DA5;
+          &:hover {
+            color:#002B79;
+            background:rgba(203,216,240,.6);
+            border:3px solid #003DA5;
+          }
+        }
+      }
+    }
+  {% elseif content.content_area.eyebrow_header_color == 'gold' %}
+    .wlt-horiz-panels-support {
+      .eyebrow {
+        border-left:3px #F1BE48 solid;
+      }
+      .wlt-btns {
+         .wlt-btn-1 {
+          color:#001A51;
+          background:#F1BE48;
+          &:hover {
+            color:#001A51;
+            background:#F4CC75;
+          }
+        }
+        .wlt-btn-2 {
+          color:#001A51;
+          background:white;
+          border:3px solid #F1BE48;
+          &:hover {
+            color:#001A51;
+            background:#FEF9EF;
+            border:3px solid #F1BE48;
+          }
+        }
+      }
+    }
+  {% elseif content.content_area.eyebrow_header_color == 'teal' %}
+    .wlt-horiz-panels-support {
+      .eyebrow {
+        border-left:3px #71DDB7 solid;
+      }
+      .wlt-btns {
+         .wlt-btn-1 {
+          color:#1D1C1D;
+          background:#71DDB7;
+          &:hover {
+            color:#1D1C1D;
+            background:#D8F5E9;
+          }
+        }
+        .wlt-btn-2 {
+          color:#1D1C1D;
+          background:white;
+          border:3px solid #71DDB7;
+          &:hover {
+            color:#001A51;
+            background:#D8F5E9;
+            border:3px solid #71DDB7;
+          }
+        }
+    }
+  {% endif %}
+}
