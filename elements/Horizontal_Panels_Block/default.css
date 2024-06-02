@@ -352,7 +352,14 @@
     .wlt-horiz-panels {
       width:60%;
       .wlt-horiz-panel {
+        padding:
+        min-height:200px;
         .horiz-cover {
+          padding: 0 24px;
+          .icon-bkgd {
+            width:163px;
+            height:163px;
+          }
           &:before {
               content:'';
               width:33vw;
@@ -399,7 +406,7 @@
             flex-direction:row;
             gap:30px;
             div {
-              width:70%;
+              width:65%;
               .title, .description {
                 width:100%;
               }
@@ -446,10 +453,11 @@
     .wlt-horiz-panels {
       .wlt-horiz-panel {
         .horiz-cover {
+          gap:66px;
           .wlt-horiz-text {
             justify-content:space-between;
             div {
-              max-width:420px;
+              max-width:330px;
             }
             a {
               margin-right:30px;
