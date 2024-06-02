@@ -319,7 +319,7 @@ const observer = new IntersectionObserver((entries) => {
  }
  });
 }, {
- threshold: .65, // Observe when 75% of element is visible (adjust if needed)
+ threshold: .65, // Observe when 65% of element is visible
  rootMargin, // Observe with margin for scrolling past
 });
 

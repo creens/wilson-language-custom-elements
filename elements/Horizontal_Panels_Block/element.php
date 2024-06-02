@@ -266,16 +266,39 @@ class HorizontalPanelsBlock extends \Breakdance\Elements\Element
             a && t(a, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + r + ".svg");
         }
     }
-  const panelsContainer = document.querySelector(".wlt-sliding-panels");
-  if (panelsContainer) {
-    if (panelsContainer.classList.contains("left")) {
-      panelsContainer.classList.add(firstPanelColor);
-    } else if (panelsContainer.classList.contains("right")) {
-      panelsContainer.classList.add(thirdPanelColor);
-    }
+});','const bounceAnimation = (element) => {
+  element.classList.add(\'bounce\');
+};
 
-  }
-});'],],];
+const sections = document.querySelectorAll(\'.wlt-horiz-panel\');
+const delay = 500; // Adjust delay in milliseconds
+const rootMargin = \'100px 0px\'; // Margin for top and bottom observation
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      if (entry.target === sections[sections.length - 1]) {
+        // The last section is in the viewport
+        sections.forEach((section, index) => {
+          const iconBkgd = section.querySelector(\'.icon-bkgd\');
+          setTimeout(() => {
+            bounceAnimation(iconBkgd);
+          }, index * delay); // Apply delay based on element index
+        });
+      }
+    } else {
+      // Element no longer intersecting, reset animation
+      const iconBkgd = entry.target.querySelector(\'.icon-bkgd\');
+      iconBkgd.classList.remove(\'bounce\');
+    }
+  });
+}, {
+  threshold: 0.65, // Observe when 65% of element is visible
+  rootMargin, // Observe with margin for scrolling past
+});
+
+sections.forEach(section => observer.observe(section));
+'],],];
     }
 
     static function settings()
