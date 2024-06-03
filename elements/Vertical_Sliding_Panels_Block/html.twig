@@ -1,4 +1,4 @@
-<div class="wlt-sliding-panels  {{ design.design.alignment == 'panels-left' ? 'left' : 'right' }}">
+<div class="wlt-sliding-panels {{ design.design.alignment == 'panels-left' ? 'left' : 'right' }}">
     {% for item in content.sliding_panels.panels %}
     <div class="wlt-vert-panel" id="wlt-vert-panel-{{ loop.index }}">
       <div class="vert-cover {{ item.color }}">

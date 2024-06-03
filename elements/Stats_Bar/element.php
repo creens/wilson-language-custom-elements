@@ -55,7 +55,7 @@ class StatsBar extends \Breakdance\Elements\Element
 
     static function slug()
     {
-        return get_class();
+        return __CLASS__;
     }
 
     static function template()
@@ -191,7 +191,7 @@ class StatsBar extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '1' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '2' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '3' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string'], '4' => ['path' => 'settings.advanced.attributes[].value', 'accepts' => 'string']];
+        return [];
     }
 
     static function additionalClasses()
