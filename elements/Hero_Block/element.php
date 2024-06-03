@@ -142,22 +142,6 @@ class HeroBlock extends \Breakdance\Elements\Element
         false,
         false,
         [],
-      ), c(
-        "",
-        "",
-        [c(
-        "new_control",
-        "New Control",
-        [],
-        ['type' => 'text', 'layout' => 'vertical'],
-        false,
-        false,
-        [],
-      )],
-        ['type' => 'section'],
-        false,
-        false,
-        [],
       )];
     }
 
