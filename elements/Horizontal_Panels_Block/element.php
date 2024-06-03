@@ -247,26 +247,39 @@ class HorizontalPanelsBlock extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return ['0' =>  ['inlineScripts' => ['window.addEventListener("DOMContentLoaded", (e) => {
-    function t(e, t) {
-        fetch(t)
-            .then((e) => e.text())
-            .then((t) => {
-                let n = document.getElementById(e);
-                n ? (n.outerHTML = t) : console.warn("Target element not found for ID:", e);
-            })
-            .catch((e) => console.error("Error fetching SVG:", e));
-    }
-    let n = document.querySelectorAll(".wlt-horiz-panel");
-    for (let l of n) {
-        let o = l.querySelector(".icon");
-        if (o) {
-            let r = l.querySelector(\'.icon\').classList[1],
-                a = o.id;
-            a && t(a, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + r + ".svg");
-        }
-    }
-});','const bounceAnimation = (element) => {
+        return ['0' =>  ['inlineScripts' => ['function t(e, t) {
+  let n = document.getElementById(e);
+  if (!n) {
+    console.warn("Target element not found for ID:", e);
+    return;
+  }
+
+  if (isBuilder()) {
+    // Skip fetching and replacing in builder
+    return;
+  }
+
+  fetch(t)
+    .then((e) => e.text())
+    .then((t) => (n.outerHTML = t))
+    .catch((e) => console.error("Error fetching SVG:", e));
+}
+
+// Assuming you have a function to detect the builder environment (replace with your actual implementation)
+function isBuilder() {
+  // Replace this with the actual logic to check if it\'s the builder environment
+  return window.location.href.includes("?breakdance=builder"); // Hypothetical check for URL containing "builder"
+}
+
+let n = document.querySelectorAll(".wlt-horiz-panel");
+for (let l of n) {
+  let o = l.querySelector(".icon");
+  if (o) {
+    let r = l.querySelector(\'.icon\').classList[1],
+      a = o.id;
+    a && t(a, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + r + ".svg");
+  }
+}','const bounceAnimation = (element) => {
   element.classList.add(\'bounce\');
 };
 
@@ -298,7 +311,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 sections.forEach(section => observer.observe(section));
-'],],];
+'],'title' => 'Icons & Animation',],];
     }
 
     static function settings()
