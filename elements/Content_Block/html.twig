@@ -1,0 +1,54 @@
+<div class="wlt-content-container {{ design.overlap.overlap_the_section_below_ ? 'overlap' : '' }}
+ {{ content.content.eyebrow_header_color  }} {{ design.media.alignment == 'media-left' ? 'left' : 'right' }} {{ design.media.round_corners == 'round-top' ? 'round-top' : (design.media.round_corners == 'round-bottom' ? 'round-bottom' : '' )}} {{ design.media.round_corners == 'round-both' ? 'round-both' : '' }}">
+  <div class="wlt-content-action">
+    <div class="wlt-content-copy">
+      {% if content.content.eyebrow_header_text is not empty %}
+		  <div class="eyebrow">{{ content.content.eyebrow_header_text }}</div>
+	  {% endif %}
+      {% if content.content.headline is not empty %}
+		  <h2>{{ content.content.headline }}</h2>
+	  {% endif %}
+      {% if content.content.body_copy is not empty %}
+        {{ content.content.body_copy }}
+      {% endif %}
+    </div>
+    
+    {% if content.button_s_.quantity is not empty %}
+      <div class="wlt-btns">
+        {% if (content.button_s_.quantity == "one") %}
+
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+
+            {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'wlt-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+
+        {% endif %} 
+      </div>
+   {% endif %} 
+  </div>
+  {% if design.media.media_type == 'none' %}
+   {% else %}
+    <div class="wlt-media">
+       {% if design.media.media_type == 'image' %}
+        <div class="img-contain">
+          {{ macros.image(design.media.image, content.content.size, alt, lazyLoad) }}
+          <div class="pattern"></div>
+      </div>
+      {% elseif design.media.media_type == 'video' %}
+      <div class="video-wrapper">
+	      {{ macros.video(design.media.video) }}
+        <div class="controls">
+			<button class="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
+  		</div>
+        <div class="scrubber-container wlt-content-block">
+    		<input type="range" class="scrubber" min="0" max="1" step="0.001" value="0" />
+  		</div>
+      <div class="pattern"></div>
+      </div>
+      {% endif %}
+    </div>
+	{% endif %}
+</div>
