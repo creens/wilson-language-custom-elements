@@ -1,5 +1,4 @@
-<div class="wlt-horiz-panels {{ design.design.alignment == 'panels-left' ? 'left' : 'right' }} {{ design.design.round_corners == 'round-top' ? 'round-top' : (design.design.round_corners == 'round-bottom' ? 'round-bottom' : '' )}} {{ design.design.round_corners == 'round-both' ? 'round-both' : '' }}
-">
+<div class="wlt-horiz-panels {{ design.design.alignment == 'panels-left' ? 'left' : 'right' }} {{ design.design.round_corners == 'round-top' ? 'round-top' : (design.design.round_corners == 'round-bottom' ? 'round-bottom' : '' )}} {{ design.design.round_corners == 'round-both' ? 'round-both' : '' }}">
     {% for item in content.horizontal_panels.panels %}
     <div class="wlt-horiz-panel" id="wlt-horiz-panel-{{ loop.index }}">
       <div class="horiz-cover {{ item.color }}">

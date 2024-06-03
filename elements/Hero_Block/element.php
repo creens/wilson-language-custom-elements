@@ -223,41 +223,7 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return ['0' =>  ['inlineScripts' => ['const video = document.querySelector("video");
-const playButton = document.querySelector("#play-button");
-const scrubberContain = document.querySelector(".scrubber-container");
-const scrubber = document.querySelector("#scrubber");
-
-// Check if video exists
-if (video) {
-  // Set video to autoplay muted initially (if video exists)
-  video.autoplay = true;
-  video.muted = true;
-
-  // Add event listeners for video and button (if video exists)
-  [video, playButton].forEach(element => {
-    element.addEventListener("click", () => {
-      if (video.paused) {
-        video.play();
-        video.muted = false; // Unmute on play
-        playButton.style.display = "none"; // Hide button on play
-      } else {
-        video.pause();
-        playButton.style.display = "inline"; // Show image on pause
-        scrubberContain.style.display = "block";
-      }
-    });
-  });
-  // Update scrubber position based on video progress
-  video.addEventListener("timeupdate", () => {
-    scrubber.value = video.currentTime / video.duration;
-  });
-
-  // Update video time based on scrubber position
-  scrubber.addEventListener("input", () => {
-    video.currentTime = scrubber.value * video.duration;
-  });
-}'],'title' => 'Video Player',],];
+        return false;
     }
 
     static function settings()
