@@ -88,7 +88,7 @@
           }
           &.bounce {
             animation: bounce .45s ease-in-out forwards;
-          animation-fill-mode: both;
+            animation-fill-mode: both;
           }
           &.wilson-blue {
             background:#CBD8F0;
@@ -427,10 +427,10 @@
             }
             &:after {
               content:'';
-              width:33vw;
+              width:100vw;
               height:100%;
               position:absolute;
-              right:-33vw;
+              right:-100vw;
             }
           }
         }

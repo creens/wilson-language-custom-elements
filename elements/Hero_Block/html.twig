@@ -1,4 +1,4 @@
-<div class="hero-container">
+<div class="hero-container {{ design.hero_media.alignment == 'media-left' ? 'left' : 'right' }}">
   <div class="hero-action">
     <div class="hero-copy">
       {% if content.hero_text.headline is not empty %}

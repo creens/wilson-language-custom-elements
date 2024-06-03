@@ -89,6 +89,22 @@
     &.with-media {
       .hero-container {
         justify-content:space-between;
+        &.left {
+          .hero-media {
+            order:0;
+          }
+          .hero-action {
+            order:1;
+          }
+        }
+        &.right {
+          .hero-media {
+            order:1;
+          }
+          .hero-action {
+            order:0Ab;
+          }
+        }
         .hero-action {
           max-width:520px;
         }
