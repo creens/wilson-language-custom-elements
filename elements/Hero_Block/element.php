@@ -109,7 +109,7 @@ class HeroBlock extends \Breakdance\Elements\Element
         "media_type",
         "Media Type",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'image', 'text' => 'Image'], ['text' => 'Video', 'value' => 'video'], ['text' => 'None', 'value' => 'none']]],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'image', 'text' => 'Image'], ['text' => 'Video', 'value' => 'video']]],
         false,
         false,
         [],
@@ -172,8 +172,24 @@ class HeroBlock extends \Breakdance\Elements\Element
     static function contentControls()
     {
         return [c(
-        "hero_text",
-        "Hero Text",
+        "eyebrow",
+        "Eyebrow",
+        [c(
+        "eyebrow",
+        "Eyebrow",
+        [],
+        ['type' => 'text', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
+        "headline_s_",
+        "Headline(s)",
         [c(
         "headline",
         "Headline",
@@ -190,7 +206,15 @@ class HeroBlock extends \Breakdance\Elements\Element
         false,
         false,
         [],
+      )],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
       ), c(
+        "body_copy",
+        "Body Copy",
+        [c(
         "body_copy",
         "Body Copy",
         [],
@@ -284,7 +308,7 @@ class HeroBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return [['accepts' => 'string', 'path' => 'content.content.text'], ['accepts' => 'string', 'path' => 'content.content.link.url'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url']];
+        return [['accepts' => 'string', 'path' => 'content.content.text'], ['accepts' => 'string', 'path' => 'content.content.link.url'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], ['accepts' => 'string', 'path' => 'content.headline_s_.subhead']];
     }
 
     static function additionalClasses()

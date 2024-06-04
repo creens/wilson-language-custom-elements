@@ -1,15 +1,23 @@
-<div class="wlt-content-container {{ design.overlap.overlap_the_section_below_ ? 'overlap' : '' }}
- {{ content.content.eyebrow_header_color  }} {{ design.media.alignment == 'media-left' ? 'left' : 'right' }} {{ design.media.round_corners == 'round-top' ? 'round-top' : (design.media.round_corners == 'round-bottom' ? 'round-bottom' : '' )}} {{ design.media.round_corners == 'round-both' ? 'round-both' : '' }}">
+<div class="wlt-content-container {{ design.overlap.overlap_sections_ == 'wlt-above' ? 'wlt-above' : (design.overlap.overlap_sections_ == 'wlt-below' ? 'wlt-below' : '' )}}{{design.overlap.overlap_sections_ == 'wlt-both' ? 'wlt-both' : '' }} {{ content.eyebrow.eyebrow_header_color }} {{ design.media.alignment == 'media-left' ? 'left' : '' }} {{ design.media.alignment == 'media-right' ? 'right' : '' }} {{ design.media.round_corners == 'round-top' ? 'round-top' : (design.media.round_corners == 'round-bottom' ? 'round-bottom' : '' )}} {{ design.media.round_corners == 'round-both' ? 'round-both' : '' }}">
   <div class="wlt-content-action">
     <div class="wlt-content-copy">
-      {% if content.content.eyebrow_header_text is not empty %}
-		  <div class="eyebrow">{{ content.content.eyebrow_header_text }}</div>
-	  {% endif %}
-      {% if content.content.headline is not empty %}
-		  <h2>{{ content.content.headline }}</h2>
-	  {% endif %}
-      {% if content.content.body_copy is not empty %}
-        {{ content.content.body_copy }}
+      <div class="wlt-headline-container">
+        {% if content.headline.include_icon_ %}
+          <div class="wlt-icon">{{ macros.image(content.headline.icon, content.content.size, alt, lazyLoad) }}</div>
+        {% endif %}
+          <div class="wlt-headline">
+              {% if content.eyebrow.eyebrow_header_text is not empty %}
+                  <div class="eyebrow">{{ content.eyebrow.eyebrow_header_text }}</div>
+              {% endif %}
+              {% if content.headline.headline is not empty %}
+                {% if content.headline.tags is not empty %} <{{content.headline.tags}}>{% endif %}
+                    {{ content.headline.headline }}
+                {% if content.headline.tags is not empty %}</{{content.headline.tags}}>{% endif %}
+              {% endif %} 
+            </div>
+      </div>
+      {% if content.body_copy.text is not empty %}
+        {{ content.body_copy.text }}
       {% endif %}
     </div>
     
@@ -29,7 +37,7 @@
       </div>
    {% endif %} 
   </div>
-  {% if design.media.media_type == 'none' %}
+  {% if (design.media.media_type ?? 'none') == 'none' %}
    {% else %}
     <div class="wlt-media">
        {% if design.media.media_type == 'image' %}
@@ -39,16 +47,16 @@
       </div>
       {% elseif design.media.media_type == 'video' %}
       <div class="video-wrapper">
-	      {{ macros.video(design.media.video) }}
+        {{ macros.video(design.media.video) }}
         <div class="controls">
-			<button class="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
-  		</div>
+      <button class="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
+      </div>
         <div class="scrubber-container wlt-content-block">
-    		<input type="range" class="scrubber" min="0" max="1" step="0.001" value="0" />
-  		</div>
+        <input type="range" class="scrubber" min="0" max="1" step="0.001" value="0" />
+      </div>
       <div class="pattern"></div>
       </div>
       {% endif %}
     </div>
-	{% endif %}
+  {% endif %}
 </div>

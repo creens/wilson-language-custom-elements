@@ -1,14 +1,17 @@
-<div class="hero-container {{ design.hero_media.alignment == 'media-left' ? 'left' : '' }} {{ design.hero_media.alignment == 'media-right' ? 'right' : '' }}">
+<div class="hero-container {{design.background.color }} {{ design.hero_media.alignment == 'media-left' ? 'left' : '' }} {{ design.hero_media.alignment == 'media-right' ? 'right' : 'none' }}">
   <div class="hero-action">
     <div class="hero-copy">
-      {% if content.hero_text.headline is not empty %}
-		  <h1>{{ content.hero_text.headline }}</h1>
-	  {% endif %}
-      {% if content.hero_text.subhead is not empty %}
-       <h2>{{ content.hero_text.subhead ?? '' }}</h2>
+      {% if content.eyebrow.eyebrow is not empty %}
+      	<div class="eyebrow">{{ content.eyebrow.eyebrow }}</div>
       {% endif %}
-      {% if content.hero_text.body_copy is not empty %}
-        {{ content.hero_text.body_copy }}
+      {% if content.headline_s_.headline is not empty %}
+      	<h1>{{ content.headline_s_.headline }}</h1>
+    	{% endif %}
+      {% if content.headline_s_.subhead is not empty %}
+       <h2>{{ content.headline_s_.subhead }}</h2>
+      {% endif %}
+      {% if content.body_copy.body_copy is not empty %}
+        {{ content.body_copy.body_copy }}
       {% endif %}
     </div>
     
@@ -32,18 +35,18 @@
    {% else %}
     <div class="hero-media">
       {% if design.hero_media.media_type == 'image' %}
-      	{{ macros.image(design.hero_media.image, content.content.size, alt, lazyLoad) }}
+        {{ macros.image(design.hero_media.image, content.content.size, alt, lazyLoad) }}
       {% elseif design.hero_media.media_type == 'video' %}
       <div class="video-wrapper">
-	      {{ macros.video(design.hero_media.video) }}
+        {{ macros.video(design.hero_media.video) }}
         <div class="controls">
-			<button class="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
-  		</div>
+      <button class="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
+      </div>
         <div class="scrubber-container">
-    		<input type="range" class="scrubber" min="0" max="1" step="0.001" value="0" />
-  		</div>
+        <input type="range" class="scrubber" min="0" max="1" step="0.001" value="0" />
+      </div>
       </div>
       {% endif %}
     </div>
-	{% endif %}
+  {% endif %}
 </div>

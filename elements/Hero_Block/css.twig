@@ -3,6 +3,52 @@
   padding-bottom: {{ design.spacing.padding_bottom.style }};
 }
 %%SELECTOR%% {
+  {% if design.hero_media.media_type == 'video' %}
+  	{% if design.background.color == 'blue' %}
+		.eyebrow {
+      		border-left:3px solid #003DA5;
+  		}
+    {% elseif design.background.color == 'gold' %}
+  		.eyebrow {
+          border-left:3px solid #F1BE48;
+  		}
+    {% elseif design.background.color == 'teal' %}
+ 	 	.eyebrow {
+  			border-left:3px solid #71DDB7;
+  }
+    {% endif %}
+  {% elseif design.hero_media.media_type == 'image' %}
+  	{% if design.background.color == 'blue' %}
+		.eyebrow {
+      		color:white;
+  		}
+    {% elseif design.background.color == 'gold' %}
+  		.eyebrow {
+          color:#1D1C1D;
+  		}
+    {% elseif design.background.color == 'teal' %}
+ 	 	.eyebrow {
+  			color:#1D1C1D;
+  	}
+    {% endif %}
+  {% else %}
+    .eyebrow {
+      padding:0;
+    }
+  	{% if design.background.color == 'blue' %}
+  		.eyebrow {
+          color:white;
+  		}
+  	{% elseif design.background.color == 'gold' %}
+  		.eyebrow {
+          color:#1D1C1D;
+  		}
+	{% elseif design.background.color == 'teal' %}
+  		.eyebrow {
+          color:#1D1C1D;
+  		}
+  	{% endif %}
+  {% endif %}
   &.with-media {
     &.with-video {
       &::before, &::after {
@@ -125,7 +171,7 @@
   }
   &::before {
     content:'';
-    background:url('data:image/svg+xml,<svg width="977.947933px" height="1081.27244px" viewBox="0 0 977.947933 1381.27244" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Other-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Product-v2" transform="translate(-757, 231.0003)" fill="%23FEF9EF"><g id="HERO" transform="translate(1, 186)"><g id="yellow-circles" transform="translate(717, 0)"><g id="Group-9" transform="translate(39, -417.0003)"><path d="M961.74756,997.20537 C971.89256,1198.91437 816.59956,1370.65737 614.88956,1380.80237 C413.18056,1390.94737 241.43856,1235.65437 231.29356,1033.94437 C221.14756,832.23537 376.44156,660.49337 578.15056,650.34737 C779.86056,640.20237 951.60256,795.49637 961.74756,997.20537" id="Fill-1" style="mix-blend-mode: multiply;"></path><path d="M730.92416,529.18717 C741.06916,730.89617 585.77616,902.63917 384.06616,912.78417 C182.35716,922.92917 10.6151604,767.63617 0.470160398,565.92617 C-9.6758396,364.21717 145.61816,192.47517 347.32716,182.32917 C549.03716,172.18417 720.77916,327.47817 730.92416,529.18717" id="Fill-4" style="mix-blend-mode: multiply;"></path><path d="M977.47786,347.32807 C987.62286,549.03707 832.32986,720.78007 630.61986,730.92507 C428.91086,741.07007 257.16886,585.77707 247.02386,384.06707 C236.87786,182.35807 392.17186,10.6160702 593.88086,0.470070229 C795.59086,-9.67492977 967.33286,145.61907 977.47786,347.32807" id="Fill-6" style="mix-blend-mode: multiply;"></path></g></g></g></g></g></svg>') no-repeat;
+    background: url('data:image/svg+xml,<svg width="977.947933px" height="1081.27244px" viewBox="0 0 977.947933 1381.27244" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Other-Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Product-v2" transform="translate(-757, 231.0003)" fill="%23FEF9EF"><g id="HERO" transform="translate(1, 186)"><g id="yellow-circles" transform="translate(717, 0)"><g id="Group-9" transform="translate(39, -417.0003)"><path d="M961.74756,997.20537 C971.89256,1198.91437 816.59956,1370.65737 614.88956,1380.80237 C413.18056,1390.94737 241.43856,1235.65437 231.29356,1033.94437 C221.14756,832.23537 376.44156,660.49337 578.15056,650.34737 C779.86056,640.20237 951.60256,795.49637 961.74756,997.20537" id="Fill-1" style="mix-blend-mode: multiply;"></path><path d="M730.92416,529.18717 C741.06916,730.89617 585.77616,902.63917 384.06616,912.78417 C182.35716,922.92917 10.6151604,767.63617 0.470160398,565.92617 C-9.6758396,364.21717 145.61816,192.47517 347.32716,182.32917 C549.03716,172.18417 720.77916,327.47817 730.92416,529.18717" id="Fill-4" style="mix-blend-mode: multiply;"></path><path d="M977.47786,347.32807 C987.62286,549.03707 832.32986,720.78007 630.61986,730.92507 C428.91086,741.07007 257.16886,585.77707 247.02386,384.06707 C236.87786,182.35807 392.17186,10.6160702 593.88086,0.470070229 C795.59086,-9.67492977 967.33286,145.61907 977.47786,347.32807" id="Fill-6" style="mix-blend-mode: multiply;"></path></g></g></g></g></g></svg>') no-repeat;
       background-size:cover;
       position:absolute;
       right:-3%;

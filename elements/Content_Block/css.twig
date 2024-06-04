@@ -4,7 +4,7 @@
 }
 
 %%SELECTOR%% {
-{% if content.content.eyebrow_header_color == 'blue' %}
+{% if content.eyebrow.eyebrow_header_color == 'blue' %}
     .wlt-content-copy {
       .eyebrow {
         border-left:3px #003DA5 solid;
@@ -22,11 +22,11 @@
         }
       }
     }
-  {% elseif content.content.eyebrow_header_color == 'gold' %}
+  {% elseif content.eyebrow.eyebrow_header_color == 'gold' %}
     .wlt-content-copy {
       .eyebrow {
-        border-left:3px #F1BE48 solid;
-      }
+         border-left:3px #F1BE48 solid;
+       }
     }
     .wlt-btns {
        .wlt-btn-1 {
@@ -53,7 +53,7 @@
         border:#F1BE48 solid 9px;
       }
     }
-  {% elseif content.content.eyebrow_header_color == 'teal' %}
+  {% elseif content.eyebrow.eyebrow_header_color == 'teal' %}
     .wlt-content-copy {
       .eyebrow {
         border-left:3px #71DDB7 solid;
@@ -93,7 +93,7 @@
 }
 @media only screen and (min-width: 768px) {
   %%SELECTOR%% {
-    {% if content.content.eyebrow_header_color == 'blue' %}
+    {% if content.eyebrow.eyebrow_header_color== 'blue' %}
       .wlt-content-container {
         .wlt-media {
           .img-contain, .video-wrapper {
@@ -110,7 +110,7 @@
           }
         }
       } 
-    {% elseif content.content.eyebrow_header_color == 'gold' %}
+    {% elseif content.eyebrow.eyebrow_header_color == 'gold' %}
       .wlt-content-container {
         .wlt-media {
           .img-contain, .video-wrapper {
@@ -127,7 +127,7 @@
           }
         }
       }
-    {% elseif content.content.eyebrow_header_color == 'teal' %}
+    {% elseif content.eyebrow.eyebrow_header_color == 'teal' %}
       .wlt-content-container {
         .wlt-media {
           .img-contain, .video-wrapper {

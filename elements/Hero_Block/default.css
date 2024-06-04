@@ -13,14 +13,22 @@
     width:90%;
     max-width:1120px;
     & > * {
-    	flex: 1;
+      flex: 1;
     }
     .hero-copy {
-      h1, h2, p {
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      h1, h2, p, .eyebrow {
         text-align:center;
+        margin:0;
         position:relative;
         z-index:10;
       }
+      p {
+  		margin:0 auto;
+  		max-width:735px;
+		}
     }
     .hero-action {
       display:flex;
@@ -29,7 +37,7 @@
         margin-top:33px;
         align-self:center;
         & > * {
-       	  margin-bottom:15px;
+          margin-bottom:15px;
         }
         & > *:first-child {
           margin-right:15px;
@@ -70,10 +78,11 @@
         position:relative;
         z-index:10;
         .hero-copy {
-          h1, h2, p {
+          h1, h2, p, .eyebrow {
             text-align:left;
+            margin:0;
           }
-      	}
+        }
         .hero-btns {
           align-self:flex-start;
         }
