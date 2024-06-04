@@ -1,4 +1,4 @@
-<div class="hero-container {{ design.hero_media.alignment == 'media-left' ? 'left' : 'right' }}">
+<div class="hero-container {{ design.hero_media.alignment == 'media-left' ? 'left' : '' }} {{ design.hero_media.alignment == 'media-right' ? 'right' : '' }}">
   <div class="hero-action">
     <div class="hero-copy">
       {% if content.hero_text.headline is not empty %}
@@ -28,7 +28,7 @@
       </div>
    {% endif %} 
   </div>
-  {% if design.hero_media.media_type == 'none' %}
+  {% if (design.hero_media.media_type ?? 'none') == 'none' %}
    {% else %}
     <div class="hero-media">
       {% if design.hero_media.media_type == 'image' %}
