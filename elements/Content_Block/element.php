@@ -162,10 +162,10 @@ class ContentBlock extends \Breakdance\Elements\Element
         "overlap",
         "Overlap",
         [c(
-        "overlap_sections_",
-        "Overlap sections?",
+        "overlap_section_below_",
+        "Overlap section below?",
         [],
-        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['text' => 'Above', 'value' => 'wlt-above'], ['text' => 'Below', 'value' => 'wlt-below'], ['text' => 'Both', 'value' => 'wlt-both']]],
+        ['type' => 'toggle', 'layout' => 'inline', 'items' => [['text' => 'Above', 'value' => 'wlt-above'], ['text' => 'Below', 'value' => 'wlt-below'], ['text' => 'Both', 'value' => 'wlt-both']]],
         false,
         false,
         [],
