@@ -61,19 +61,24 @@
         padding:0 15px;
         margin-bottom:33px;
         position:relative;
+        .breakdance-image-clip {
+          box-shadow:0 2px 20px rgba(0,0,0,.15);
+          border-radius:100%;
+          position:relative;
+          z-index:10;
+         	img {
+              aspect-ratio:1/1;
+              margin:0 auto;
+              object-fit:cover;
+              position:relative;
+            } 
+        }
         .pattern {
           position:absolute;
           height:100%;
           width:100%;
           top:0;
           z-index:0;
-        }
-        img {
-          aspect-ratio: 1 / 1;
-          margin:0 auto;
-          border-radius:100%;
-          box-shadow:0 2px 20px rgba(0,0,0,.15);
-          object-fit:cover;
         }
       }
       video {

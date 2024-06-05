@@ -42,9 +42,11 @@
     <div class="wlt-media">
        {% if design.media.media_type == 'image' %}
         <div class="img-contain">
-          {{ macros.image(design.media.image, content.content.size, alt, lazyLoad) }}
+          <div class="breakdance-image-clip">
+            {{ macros.image(design.media.image, content.content.size, alt, lazyLoad) }}
+          </div>
           <div class="pattern"></div>
-      </div>
+        </div>
       {% elseif design.media.media_type == 'video' %}
       <div class="video-wrapper">
         {{ macros.video(design.media.video) }}
