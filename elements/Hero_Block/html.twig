@@ -1,12 +1,12 @@
-<div class="hero-container {{design.background.color }} {{ design.hero_media.alignment == 'media-left' ? 'left' : '' }} {{ design.hero_media.alignment == 'media-right' ? 'right' : 'none' }}">
+<div class="hero-container {{design.background.color }} {{ design.media.alignment == 'media-left' ? 'left' : '' }} {{ design.media.alignment == 'media-right' ? 'right' : 'none' }}">
   <div class="hero-action">
     <div class="hero-copy">
       {% if content.eyebrow.eyebrow is not empty %}
-      	<div class="eyebrow">{{ content.eyebrow.eyebrow }}</div>
+        <div class="eyebrow">{{ content.eyebrow.eyebrow }}</div>
       {% endif %}
       {% if content.headline_s_.headline is not empty %}
-      	<h1>{{ content.headline_s_.headline }}</h1>
-    	{% endif %}
+        <h1>{{ content.headline_s_.headline }}</h1>
+      {% endif %}
       {% if content.headline_s_.subhead is not empty %}
        <h2>{{ content.headline_s_.subhead }}</h2>
       {% endif %}
@@ -31,14 +31,16 @@
       </div>
    {% endif %} 
   </div>
-  {% if (design.hero_media.media_type ?? 'none') == 'none' %}
+  {% if (design.media.media_type ?? 'none') == 'none' %}
    {% else %}
     <div class="hero-media">
-      {% if design.hero_media.media_type == 'image' %}
-        {{ macros.image(design.hero_media.image, content.content.size, alt, lazyLoad) }}
-      {% elseif design.hero_media.media_type == 'video' %}
+      {% if design.media.media_type == 'image' %}
+        <div class="breakdance-image-clip">
+         {{ macros.getMedia(design.media.image, content.content.size, content.content.lazyLoad) }}
+        </div>
+      {% elseif design.media.media_type == 'video' %}
       <div class="video-wrapper">
-        {{ macros.video(design.hero_media.video) }}
+        {{ macros.video(design.media_media.video) }}
         <div class="controls">
       <button class="play-button"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/btn-video-play.svg" alt="video play button" /></button>
       </div>
