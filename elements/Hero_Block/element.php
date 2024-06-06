@@ -87,22 +87,6 @@ class HeroBlock extends \Breakdance\Elements\Element
     static function designControls()
     {
         return [c(
-        "background",
-        "Background",
-        [c(
-        "color",
-        "Color",
-        [],
-        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['value' => 'blue', 'text' => 'Blue'], ['text' => 'Gold', 'value' => 'gold'], ['text' => 'Teal', 'value' => 'teal']]],
-        false,
-        false,
-        [],
-      )],
-        ['type' => 'section'],
-        false,
-        false,
-        [],
-      ), c(
         "media",
         "Media",
         [c(
@@ -188,6 +172,22 @@ class HeroBlock extends \Breakdance\Elements\Element
     static function contentControls()
     {
         return [c(
+        "theme_color",
+        "Theme Color",
+        [c(
+        "color",
+        "Color",
+        [],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'blue', 'text' => 'Wilson Blue'], ['text' => 'Implementation Teal', 'value' => 'teal'], ['text' => 'Fun Gold', 'value' => 'gold']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
         "eyebrow",
         "Eyebrow",
         [c(
