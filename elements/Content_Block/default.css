@@ -21,8 +21,6 @@
       gap:18px;
       .wlt-headline-container {
         display:flex;
-        justify-content:center;
-        align-items:center;
       	gap:18px;
         img {
           max-width:72px;

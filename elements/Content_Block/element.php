@@ -196,19 +196,35 @@ class ContentBlock extends \Breakdance\Elements\Element
     static function contentControls()
     {
         return [c(
-        "eyebrow",
-        "Eyebrow",
+        "theme_color",
+        "Theme Color",
         [c(
-        "eyebrow_header_color",
-        "Eyebrow Header Color",
+        "color",
+        "Color",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'blue', 'text' => 'Blue'], ['text' => 'Gold', 'value' => 'gold'], ['text' => 'Teal', 'value' => 'teal']]],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'blue', 'text' => 'Wilson Blue'], ['text' => 'Implementation Teal', 'value' => 'teal'], ['text' => 'Fun Gold', 'value' => 'gold'], ['text' => 'Fundations Salmon', 'value' => 'fundations-salmon'], ['text' => 'Fundations Purple', 'value' => 'fundations-purple'], ['text' => 'Fundations Blue', 'value' => 'fundations-blue'], ['text' => 'Fundations Teal', 'value' => 'fundations-teal']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
         false,
         false,
         [],
       ), c(
-        "eyebrow_header_text",
-        "Eyebrow Header text",
+        "adjust_color",
+        "Adjust Color",
+        [],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'condition' => [[['path' => 'content.theme_color.color', 'operand' => 'equals', 'value' => 'blue']], [['path' => 'content.theme_color.color', 'operand' => 'equals', 'value' => 'teal']], [['path' => 'content.theme_color.color', 'operand' => 'equals', 'value' => 'gold']]], 'items' => [['value' => 'lighter', 'text' => 'Lighter'], ['text' => 'Darker', 'value' => 'darker']]],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
+        "eyebrow",
+        "Eyebrow",
+        [c(
+        "text",
+        "Text",
         [],
         ['type' => 'text', 'layout' => 'vertical'],
         false,
