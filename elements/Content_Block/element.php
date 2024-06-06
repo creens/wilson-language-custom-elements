@@ -279,10 +279,31 @@ class ContentBlock extends \Breakdance\Elements\Element
         "button_s_",
         "Button(s)",
         [c(
+        "type",
+        "Type",
+        [],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'pill', 'text' => 'Pill'], ['text' => 'Simple Text', 'value' => 'simple-text']]],
+        false,
+        false,
+        [],
+      ), c(
+        "links",
+        "Links",
+        [getPresetSection(
+      "EssentialElements\\AtomV1ButtonContent",
+      "Link",
+      "link",
+       ['type' => 'popout']
+     )],
+        ['type' => 'repeater', 'layout' => 'vertical', 'repeaterOptions' => ['titleTemplate' => '', 'defaultTitle' => '', 'buttonName' => 'Add Link'], 'condition' => [[['path' => 'content.button_s_.type', 'operand' => 'equals', 'value' => 'simple-text']]]],
+        false,
+        false,
+        [],
+      ), c(
         "quantity",
         "Quantity",
         [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'one', 'text' => 'One'], ['text' => 'Two', 'value' => 'two']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'one', 'text' => 'One'], ['text' => 'Two', 'value' => 'two']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default'], 'condition' => [[['path' => 'content.button_s_.type', 'operand' => 'equals', 'value' => 'pill']]]],
         false,
         false,
         [],
@@ -290,12 +311,12 @@ class ContentBlock extends \Breakdance\Elements\Element
       "EssentialElements\\AtomV1ButtonContent",
       "Button 1",
       "button_1",
-       ['condition' => [[['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'one']], [['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+       ['condition' => [[['path' => 'content.button_s_.type', 'operand' => 'equals', 'value' => 'pill'], ['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'one']], [['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
      ), getPresetSection(
       "EssentialElements\\AtomV1ButtonContent",
       "Button 2",
       "button_2",
-       ['condition' => [[['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two']]], 'type' => 'popout']
+       ['condition' => [[['path' => 'content.button_s_.quantity', 'operand' => 'equals', 'value' => 'two'], ['path' => 'content.button_s_.type', 'operand' => 'equals', 'value' => 'pill']]], 'type' => 'popout']
      )],
         ['type' => 'section', 'layout' => 'vertical'],
         false,
@@ -356,7 +377,7 @@ class ContentBlock extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return [];
+        return [['accepts' => 'string', 'path' => 'content.button_s_.button_3.text'], ['accepts' => 'string', 'path' => 'content.button_s_.button_3.link.url'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.text'], ['accepts' => 'string', 'path' => 'content.button_s_.button_2.link.url'], ['accepts' => 'string', 'path' => 'content.button_s_.button_1.text'], ['accepts' => 'string', 'path' => 'content.button_s_.button_1.link.url'], ['accepts' => 'string', 'path' => 'content.button_s_.links.link.text'], ['accepts' => 'string', 'path' => 'content.button_s_.links.link.link.url']];
     }
 
     static function additionalClasses()
@@ -377,7 +398,7 @@ class ContentBlock extends \Breakdance\Elements\Element
 
     static function propertyPathsToWhitelistInFlatProps()
     {
-        return false;
+        return ['content.button_s_.links.button.custom.size.full_width_at', 'content.button_s_.links.button.styles'];
     }
 
     static function propertyPathsToSsrElementWhenValueChanges()

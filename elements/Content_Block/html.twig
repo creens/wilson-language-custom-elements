@@ -21,19 +21,27 @@
       {% endif %}
     </div>
     
-    {% if content.button_s_.quantity is not empty %}
-      <div class="wlt-btns">
-        {% if (content.button_s_.quantity == "one") %}
+    {% if content.button_s_.type is not empty %}
+      <div class="wlt-btns {{ content.button_s_.type }}">
+        {% if content.button_s_.type == 'pill' %}
+          {% if (content.button_s_.quantity == "one") %}
 
-          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
 
-            {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+              {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
 
-          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
 
-            {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'wlt-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+              {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'wlt-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+          {% endif %}
 
-        {% endif %} 
+        {% elseif content.button_s_.type == 'simple-text' %}
+          
+           {% for item in content.button_s_.links %}
+              {{ macros.atomV1ButtonHtml(item.link, 'simple-link', path.to.button_design_preset_section, 'text', 'item.link.text') }}
+          {% endfor %}
+
+        {% endif %}
       </div>
    {% endif %} 
   </div>
