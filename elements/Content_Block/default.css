@@ -17,16 +17,13 @@
     .wlt-content-copy {
       display:flex;
       flex-direction:column;
+      justify-content:center;
+      align-items:center;
       gap:18px;
-      h1, h2, h3, h4, h5, h6, p {
-        text-align:left;
-        margin:0;
-        position:relative;
-        z-index:10;
-      }
       .wlt-headline-container {
         display:flex;
-      	flex-direction:column;
+        justify-content:center;
+        align-items:center;
       	gap:18px;
         img {
           max-width:72px;
@@ -34,8 +31,20 @@
         .wlt-headline {
           display:flex;
       	  flex-direction:column;
-          gap:18px;
+          gap:9px;
+          h1, h2, h3, h4, h5, h6 {
+            text-align:left;
+            margin:0;
+            position:relative;
+            z-index:10;
+          }
         }
+      }
+      p {
+        text-align:center;
+        margin:0;
+        position:relative;
+        z-index:10;
       }
     }
     .wlt-content-action {
@@ -44,6 +53,9 @@
       justify-content:center;
       gap:18px;
       .wlt-btns {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
         margin-top:15px;
         & > * {
           margin-bottom:15px;
@@ -116,12 +128,15 @@
         position:relative;
         z-index:10;
         .wlt-content-copy {
-          h1, h2, h3, h4, h5, h6, p {
-            text-align:left;
+          h1, h2, h3, h4, h5, h6 {
+            text-align:center;
           }
         }
+        p {
+          text-align:center;
+        }
         .wlt-btns {
-          align-self:flex-start;
+
         }
       }
     }
@@ -171,14 +186,43 @@
       }
       .wlt-content-action {
         .wlt-content-copy {
+          align-items:flex-start;
           .wlt-headline-container {
             flex-direction:row;
             align-items:center;
+            .wlt-headline {
+              h1, h2, h3, h4, h5, h6 {
+                text-align:left;
+              }
           }
         }
+        p {
+          text-align:left;
+        }
+      }
+      .wlt-btns {
+        justify-content:flex-start;
+      }
       }
       .wlt-media {
         overflow:visible;
+        .img-contain, .video-wrapper {
+          .pattern {
+            overflow: hidden;
+            &:after {
+              content:'';
+              position:absolute;
+              right:-3%;
+              top:0;
+              bottom:0;
+              width:100%;
+              max-width:1200px;
+              margin:0 0 0 auto;
+              mix-blend-mode:multiply;
+              display:block;
+            }
+          }
+        }
         .img-contain {
           margin-bottom:0;
             img {
@@ -193,20 +237,6 @@
             z-index:10;
           }
         }
-        .pattern {
-          overflow: hidden;
-          &:after {
-            content:'';
-            position:absolute;
-            right:-3%;
-            top:0;
-            bottom:0;
-            width:100%;
-            max-width:1200px;
-            margin:0 0 0 auto;
-            mix-blend-mode:multiply;
-          }
-        }
       }
     }
     &.with-media {
@@ -214,6 +244,12 @@
         justify-content:space-between;
         .wlt-content-action {
           max-width:459px;
+          p {
+            text-align:left;
+          }
+        }
+        .wlt-btns {
+          justify-content:flex-start;
         }
         .wlt-media {
           max-width:591px;
@@ -243,7 +279,7 @@
               }
             }
             .wlt-content-action {
-              padding:33px 33px 33px 0;
+              padding:66px 33px 66px 0;
             }
             &.round-top {
               .wlt-media {
@@ -283,7 +319,7 @@
               }
             }
             .wlt-content-action {
-              padding:33px 0 33px 33px;
+              padding:66px 0 66px 33px;
             }
             &.round-top {
               .wlt-media {
@@ -386,6 +422,16 @@
       &.with-video {
         .wlt-content-container {
           gap:12px 40px;
+          &.left {
+            .wlt-content-action {
+            	padding:99px 33px 99px 0;
+          	}
+          }
+          &.right {
+            .wlt-content-action {
+            	padding:99px 0 99px 33px;
+          	}
+          }
           .wlt-media {
             .video-wrapper {
               width:87%;
