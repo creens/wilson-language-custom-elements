@@ -116,6 +116,22 @@ class HorizontalPanelsBlock extends \Breakdance\Elements\Element
     static function contentControls()
     {
         return [c(
+        "theme_color",
+        "Theme Color",
+        [c(
+        "color",
+        "Color",
+        [],
+        ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'blue', 'text' => 'Wilson Blue'], ['text' => 'Implementation Teal', 'value' => 'teal'], ['text' => 'Fun Gold', 'value' => 'gold']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
         "horizontal_panels",
         "Horizontal Panels",
         [c(
@@ -175,14 +191,6 @@ class HorizontalPanelsBlock extends \Breakdance\Elements\Element
         "content_area",
         "Content Area",
         [c(
-        "eyebrow_header_color",
-        "Eyebrow Header Color",
-        [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'items' => [['value' => 'blue', 'text' => 'Blue'], ['text' => 'Gold', 'value' => 'gold'], ['text' => 'Teal', 'value' => 'teal']]],
-        false,
-        false,
-        [],
-      ), c(
         "eyebrow_header_text",
         "Eyebrow Header text",
         [],

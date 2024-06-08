@@ -1,11 +1,9 @@
-<div class="wlt-horiz-panels {{ design.design.alignment == 'panels-left' ? 'left' : 'right' }} {{ design.design.round_corners == 'round-top' ? 'round-top' : (design.design.round_corners == 'round-bottom' ? 'round-bottom' : '' )}} {{ design.design.round_corners == 'round-both' ? 'round-both' : '' }}">
+<div class="wlt-horiz-panels">
     {% for item in content.horizontal_panels.panels %}
     <div class="wlt-horiz-panel" id="wlt-horiz-panel-{{ loop.index }}">
       <div class="horiz-cover {{ item.color }}">
         <div id="wlt-panel-icon-{{ loop.index }}" class="icon-bkgd {{ item.color }}">
-          <div id="icon-{{ loop.index }}" class="icon {{ item.graphic }}">
-            
-          </div>	
+          <div id="icon-{{ loop.index }}" class="icon {{ item.graphic }}"></div>	
         </div>
         <div class="wlt-horiz-text">
           <div>
@@ -21,7 +19,7 @@
     {% endfor %}
   </div>
 
-  <div class="wlt-horiz-panels-support {{ design.design.alignment == 'panels-left' ? 'right' : 'left' }}">
+  <div class="wlt-horiz-panels-support">
     <div class="eyebrow">{{ content.content_area.eyebrow_header_text }}</div>
     <h2>{{ content.content_area.headline }}</h2>
     {{ content.content_area.body_copy }}
