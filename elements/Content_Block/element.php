@@ -151,9 +151,33 @@ class ContentBlock extends \Breakdance\Elements\Element
         false,
         [],
       ), c(
+        "adjust_theme_color",
+        "Adjust Theme Color",
+        [c(
+        "options",
+        "Options",
+        [],
+        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['value' => 'lighter', 'text' => 'Lighter'], ['text' => 'Darker', 'value' => 'darker']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section', 'condition' => [[['path' => 'design.media.media_type', 'operand' => 'is set', 'value' => '']]]],
+        false,
+        false,
+        [],
+      ), c(
         "spacing",
         "Spacing",
         [c(
+        "remove_padding_",
+        "Remove padding?",
+        [],
+        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['value' => 'top', 'text' => 'Top'], ['text' => 'Bottom', 'value' => 'bottom'], ['text' => 'Both', 'value' => 'both']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
+        false,
+        false,
+        [],
+      ), c(
         "margin_top",
         "Margin Top",
         [],
@@ -171,6 +195,22 @@ class ContentBlock extends \Breakdance\Elements\Element
         [],
       )],
         ['type' => 'section'],
+        false,
+        false,
+        [],
+      ), c(
+        "alignment",
+        "Alignment",
+        [c(
+        "align_content",
+        "Align Content",
+        [],
+        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['value' => 'left', 'text' => 'Left'], ['text' => 'Center', 'value' => 'center'], ['text' => 'Right', 'value' => 'Right']]],
+        false,
+        false,
+        [],
+      )],
+        ['type' => 'section', 'condition' => [[['path' => 'design.media.media_type', 'operand' => 'is not set', 'value' => '']]]],
         false,
         false,
         [],
@@ -203,14 +243,6 @@ class ContentBlock extends \Breakdance\Elements\Element
         "Color",
         [],
         ['type' => 'dropdown', 'layout' => 'vertical', 'items' => [['value' => 'blue', 'text' => 'Wilson Blue'], ['text' => 'Implementation Teal', 'value' => 'teal'], ['text' => 'Fun Gold', 'value' => 'gold']], 'buttonBarOptions' => ['size' => 'small', 'layout' => 'default']],
-        false,
-        false,
-        [],
-      ), c(
-        "adjust_color",
-        "Adjust Color",
-        [],
-        ['type' => 'button_bar', 'layout' => 'vertical', 'condition' => [[['path' => 'content.theme_color.color', 'operand' => 'equals', 'value' => 'blue']], [['path' => 'content.theme_color.color', 'operand' => 'equals', 'value' => 'teal']], [['path' => 'content.theme_color.color', 'operand' => 'equals', 'value' => 'gold']]], 'items' => [['value' => 'lighter', 'text' => 'Lighter'], ['text' => 'Darker', 'value' => 'darker']]],
         false,
         false,
         [],
@@ -404,7 +436,13 @@ class ContentBlock extends \Breakdance\Elements\Element
 '], ['name' => 'with-video', 'template' => '{% if design.media is defined and design.media.media_type in [\'video\'] %}
   with-video
 {% endif %}
-']];
+'], ['name' => 'wlt-overlap', 'template' => '{% if design.media is defined and design.media.media_type in [\'image\', \'video\'] %}
+	{% if design.overlap.overlap_section_below_ %} 
+		.wlt-overlap
+	{% else %}
+	{% endif %}
+{% endif %}
+      ']];
     }
 
     static function projectManagement()

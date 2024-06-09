@@ -1,4 +1,4 @@
-<div class="wlt-content-container {{ design.overlap.overlap_section_below_ ? 'overlap'}}">
+<div class="wlt-content-container {{ design.overlap.overlap_section_below_ ? 'overlap' : ''}}">
   <div class="wlt-content-action">
     <div class="wlt-content-copy">
       <div class="wlt-headline-container">
@@ -7,7 +7,7 @@
         {% endif %}
           <div class="wlt-headline">
               {% if content.eyebrow.eyebrow_header_text is not empty %}
-                  <div class="eyebrow">{{ content.eyebrow.eyebrow_header_text }}</div>
+                  <div class="eyebrow">{{ content.eyebrow.text }}</div>
               {% endif %}
               {% if content.headline.headline is not empty %}
                 {% if content.headline.tags is not empty %} <{{content.headline.tags}}>{% endif %}

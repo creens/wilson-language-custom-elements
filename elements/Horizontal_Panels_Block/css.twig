@@ -77,36 +77,6 @@
   {% if design.design.alignment == 'panels-left' %}
     .wlt-horiz-panels {
       order:0;
-      {% if design.design.round_corners == 'round-top' %}
-        .wlt-horiz-panel {
-          &:first-child {
-            .horiz-cover {
-              border-radius:0 99px 0 0;
-            }
-          }
-        }
-      {% elseif design.design.round_corners == 'round-bottom' %}
-        .wlt-horiz-panel {
-          &:last-child {
-            .horiz-cover {
-              border-radius:0 0 99px 0;
-            }
-          }
-        }
-      {% elseif design.design.round_corners == 'round-both' %}
-        .wlt-horiz-panel {
-          &:first-child {
-            .horiz-cover {
-              border-radius:0 99px 0 0;
-            }
-          }
-          &:last-child {
-            .horiz-cover {
-              border-radius:0 0 99px 0;
-            }
-          }
-        }
-      {% endif %}
     }
     .wlt-horiz-panels-support {
       padding-bottom:90px;
@@ -114,36 +84,6 @@
   {% elseif design.design.alignment == 'panels-right' %}
     .wlt-horiz-panels {
       order:1;
-      {% if design.design.round_corners == 'round-top' %}
-        .wlt-horiz-panel {
-          &:first-child {
-            .horiz-cover {
-              border-radius:99px 0 0 0;
-            }
-          }
-        }
-      {% elseif design.design.round_corners == 'round-bottom' %}
-        .wlt-horiz-panel {
-          &:last-child {
-            .horiz-cover {
-              border-radius:0 0 0 99px;
-            }
-          }
-        }
-      {% elseif design.design.round_corners == 'round-both' %}
-        .wlt-horiz-panel {
-          &:first-child {
-            .horiz-cover {
-              border-radius:99px 0 0 0;
-            }
-          }
-          &:last-child {
-            .horiz-cover {
-              border-radius:0 0 0 99px;
-            }
-          }
-        }
-      {% endif %}
     }
     .wlt-horiz-panels-support {
      padding-top:90px;
@@ -153,10 +93,74 @@
 @media only screen and (min-width: 968px) {
   %%SELECTOR%% {
     {% if design.design.alignment == 'panels-left' %}
+      .wlt-horiz-panels {
+        {% if design.design.round_corners == 'round-top' %}
+          .wlt-horiz-panel {
+            &:first-child {
+              .horiz-cover {
+                border-radius:0 99px 0 0;
+              }
+            }
+          }
+        {% elseif design.design.round_corners == 'round-bottom' %}
+          .wlt-horiz-panel {
+            &:last-child {
+              .horiz-cover {
+                border-radius:0 0 99px 0;
+              }
+            }
+          }
+        {% elseif design.design.round_corners == 'round-both' %}
+          .wlt-horiz-panel {
+            &:first-child {
+              .horiz-cover {
+                border-radius:0 99px 0 0;
+              }
+            }
+            &:last-child {
+              .horiz-cover {
+                border-radius:0 0 99px 0;
+              }
+            }
+          }
+        {% endif %}
+      }
       .wlt-horiz-panels-support {
         margin:auto 33px auto auto;
       }
     {% elseif design.design.alignment == 'panels-right' %}
+      .wlt-horiz-panels {
+        {% if design.design.round_corners == 'round-top' %}
+          .wlt-horiz-panel {
+            &:first-child {
+              .horiz-cover {
+                border-radius:99px 0 0 0;
+              }
+            }
+          }
+        {% elseif design.design.round_corners == 'round-bottom' %}
+          .wlt-horiz-panel {
+            &:last-child {
+              .horiz-cover {
+                border-radius:0 0 0 99px;
+              }
+            }
+          }
+        {% elseif design.design.round_corners == 'round-both' %}
+          .wlt-horiz-panel {
+            &:first-child {
+              .horiz-cover {
+                border-radius:99px 0 0 0;
+              }
+            }
+            &:last-child {
+              .horiz-cover {
+                border-radius:0 0 0 99px;
+              }
+            }
+          }
+        {% endif %}
+      }
       .wlt-horiz-panels-support {
         margin:auto auto auto 33px;
       }

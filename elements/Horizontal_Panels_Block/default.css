@@ -59,7 +59,7 @@
         }
         &.fundations-blue {
           color:#001F2C;
-          background:#009CDE;
+          background:#45C8FF;
         }
         .icon-bkgd {
           margin:15px 0;
@@ -90,13 +90,13 @@
           &.implementation-teal {
             background:#D8F5E9;
             svg {
-              fill:#71DDB7;
+              fill:#0F402F;
             }
           }
           &.fun-gold {
             background:#FEF9EF;
             svg {
-              fill:#F1BE48;
+              fill:#EA9927;
             }
           }
           &.fundations-salmon {
