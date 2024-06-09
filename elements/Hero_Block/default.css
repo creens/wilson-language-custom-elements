@@ -46,7 +46,7 @@
     }
     .hero-media {
       margin-bottom:33px;
-      width:75%;
+      width:100%;
       max-width:350px;
       .breakdance-image-clip {
         box-shadow:0 2px 20px rgba(0,0,0,.15);
@@ -91,6 +91,35 @@
         .hero-btns {
           align-self:flex-start;
         }
+      }
+    }
+  }
+  &.with-media {
+    &.with-video {
+      &::before, &::after {
+        content:'';
+        position:absolute;
+        top: 0;
+        width: 100%;
+      }
+      &:after {
+        height:80%;
+      }
+      .hero-container {
+        padding:80px 5%;
+        flex-direction:column;
+        & > * {
+          flex:unset;
+        }
+      }
+      .hero-action {
+        width:100%;
+      }
+      .hero-media {
+        margin-top:30px;
+        max-width:500px;
+        position:relative;
+        z-index:10
       }
     }
   }

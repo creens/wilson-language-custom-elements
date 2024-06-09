@@ -204,6 +204,9 @@
             }
           }
         }
+        .img-contain, .video-wrapper {
+          z-index:10;
+        }
         .img-contain {
           margin-bottom:0;
             img {
