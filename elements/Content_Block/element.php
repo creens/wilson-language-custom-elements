@@ -114,22 +114,6 @@ class ContentBlock extends \Breakdance\Elements\Element
         false,
         [],
       ), c(
-        "zoom",
-        "Zoom",
-        [],
-        ['type' => 'unit', 'layout' => 'inline', 'unitOptions' => ['defaultType' => '%', 'types' => ['%']], 'rangeOptions' => ['min' => 0, 'max' => 100, 'step' => 1], 'condition' => [[['path' => 'design.media.media_type', 'operand' => 'equals', 'value' => 'image']]]],
-        false,
-        true,
-        [],
-      ), c(
-        "focus_point",
-        "Focus Point",
-        [],
-        ['type' => 'focus_point', 'layout' => 'vertical', 'focusPointOptions' => ['imagePropertyPath' => 'content.content.image'], 'condition' => [[['path' => 'design.media.media_type', 'operand' => 'equals', 'value' => 'image'], ['path' => 'design.media.zoom', 'operand' => 'is set', 'value' => '']]]],
-        false,
-        true,
-        [],
-      ), c(
         "video",
         "Video",
         [],

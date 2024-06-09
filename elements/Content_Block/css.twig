@@ -10,26 +10,6 @@
   padding:0;
   {% endif %}
 }
-/* Image settings */
-%%SELECTOR%% {
-  .wlt-content-container {
-    .wlt-media {
-      .img-contain {
-        .breakdance-image-clip {
-          .breakdance-image-object {
-            {% if design.media.zoom %}
-              transform: scale({{ (design.media.zoom.number / 100) + 1 }}) translateZ(0);
-            {% endif %}
-
-            {% if design.media.focus_point %}
-              transform-origin: {{ design.media.focus_point.x }}% {{ design.media.focus_point.y }}%;
-            {% endif %}
-          }
-        }
-      }
-    }
-  }
-}
 /* Theme color settings */
 %%SELECTOR%% {
 {% if content.theme_color.color == 'blue' %}
