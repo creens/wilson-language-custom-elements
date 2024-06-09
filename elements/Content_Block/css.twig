@@ -295,8 +295,14 @@
       .wlt-media {
         order:0;
         margin-left:auto;
-        &:after {
-          display: none;
+        &:before {
+          content:'';
+          margin-left:-100vw;
+          width:100vw;
+          height:100%;
+          top:0;
+          position:absolute;
+          z-index:0;
         }
         .img-contain {
           .pattern {
@@ -312,10 +318,17 @@
         order:1;
         margin-right:auto;
         &:before {
-          display: none;
+          content:'';
+          width:100vw;
+          height:100%;
+          left: 100%;
+          top:0;
+          position:absolute;
+          z-index:0;
         }
         .pattern {
           transform:scaleX(-1);
+          right: calc(-93%/2);
         }
         .img-contain {
           .pattern {
@@ -352,11 +365,11 @@
               .pattern {
                 left:calc(-93%/5);
                 {% if design.media.round_corners == 'round-top' %}
-                  border-radius:0 99px 0 0;
+                  border-radius:0 66px 0 0;
                 {% elseif design.media.round_corners == 'round-bottom' %}
-                  border-radius:0 0 99px 0;
+                  border-radius:0 0 66px 0;
                 {% elseif design.media.round_corners == 'round-both' %}
-                  border-radius:0 99px 99px 0;
+                  border-radius:0 66px 66px 0;
                 {% endif %}
               }
             }
@@ -377,15 +390,34 @@
               .pattern {
                 right:calc(-93%/5);
                 {% if design.media.round_corners == 'round-top' %}
-                  border-radius:0 99px 0 0;
+                  border-radius:0 66px 0 0;
                 {% elseif design.media.round_corners == 'round-bottom' %}
-                  border-radius:0 0 99px 0;
+                  border-radius:0 0 66px 0;
                 {% elseif design.media.round_corners == 'round-both' %}
-                  border-radius:0 99px 99px 0;
+                  border-radius:0 66px 66px 0;
                 {% endif %}
               }
             }
           }
+        }
+      }
+    {% endif %}
+  }
+}
+@media only screen and (min-width: 1200px) {
+  %%SELECTOR%% {
+    {% if design.media.alignment == 'media-left' %}
+     .wlt-content-container {
+        .wlt-content-action {
+          padding:66px 33px 66px 0;
+        }
+      }
+      }
+    {% elseif design.media.alignment == 'media-right' %}
+     .wlt-content-container {
+       padding:0;
+       .wlt-content-action {
+          padding:66px 33px 66px 0;
         }
       }
     {% endif %}
