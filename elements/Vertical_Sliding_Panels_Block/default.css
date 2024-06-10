@@ -45,7 +45,7 @@
         transition: all 0.3s ease-in-out;
         overflow:hidden;
         &.collapsed {
-          transform:translateY(-75%);
+          transform:translateY(-82%);
         }
         &.wilson-blue {
           color:white;
@@ -172,11 +172,11 @@
           .title, .description {
             font-size:18px;
             text-align:center;
-            text-transform:uppercase;
           }
           .title {
             font-weight:600;
             margin-bottom:9px;
+            text-transform:uppercase;
           }
           .description {
             margin-bottom:21px;
@@ -314,6 +314,14 @@
           .pattern {
             top:-39%;
           }
+          .wlt-vert-text {
+            .title {
+              font-size:18px;
+            }
+            .description {
+              font-size:15px;
+            }
+          }
         }
         .wlt-vert-info {
           padding:15px;
@@ -353,6 +361,9 @@
       width:60%;
       .wlt-vert-panel {
         .vert-cover {
+          &.collapsed {
+          	transform:translateY(-87%);
+          }
           .wlt-vert-text {
             .description {
               font-size:15px;
@@ -469,7 +480,7 @@
             .description {
               font-size:18px;
               line-height:23px;
-              max-width:190px;
+              max-width:270px;
             }
           }
         }

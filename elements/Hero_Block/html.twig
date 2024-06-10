@@ -35,7 +35,7 @@
     <div class="hero-media">
       {% if design.media.media_type == 'image' %}
         <div class="breakdance-image-clip">
-         {{ macros.getMedia(design.media.image, content.content.size, content.content.lazyLoad) }}
+          {{ macros.image(design.media.image, content.content.size, alt, lazyLoad) }}
         </div>
       {% elseif design.media.media_type == 'video' %}
       <div class="video-wrapper">
