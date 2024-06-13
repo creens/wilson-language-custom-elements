@@ -21,6 +21,26 @@
     }
   {% endif %}
 }
+/* remove control bar */
+%%SELECTOR%% {
+  {% if (design.media.media_type == "video") %}
+	{% if design.media.remove_control_bar_ %}
+      .hero-container {
+        .hero-media {
+            .video-wrapper {
+              video {
+                cursor:default;
+              }
+            }
+          }
+      }
+      .controls, .scrubber-container {
+        display:none;
+      }
+  	{% endif %}
+  {% endif %}
+}
+      
 /* eyebrows */
 %%SELECTOR%% {
   {% if design.media.media_type == 'video' %}

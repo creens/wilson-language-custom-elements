@@ -114,6 +114,14 @@ class HeroBlock extends \Breakdance\Elements\Element
         false,
         [],
       ), c(
+        "remove_control_bar_",
+        "Remove control bar?",
+        [],
+        ['type' => 'toggle', 'layout' => 'inline', 'condition' => [[['path' => 'design.media.media_type', 'operand' => 'equals', 'value' => 'video']]]],
+        false,
+        false,
+        [],
+      ), c(
         "alignment",
         "Alignment",
         [],
