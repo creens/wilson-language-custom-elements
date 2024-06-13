@@ -3,6 +3,24 @@
   padding-top: {{ design.spacing.padding_top.style }};
   padding-bottom: {{ design.spacing.padding_bottom.style }};
 }
+/* alignment */
+%%SELECTOR%% {
+  {% if design.media.alignment == 'media-left' %}
+    .hero-action {
+      order:1;
+    }
+    .hero-media {
+      order:0;
+    }
+  {% elseif design.media.alignment == 'media-right' %}
+    .hero-action {
+      order:0;
+    }
+    .hero-media {
+      order:1;
+    }
+  {% endif %}
+}
 /* eyebrows */
 %%SELECTOR%% {
   {% if design.media.media_type == 'video' %}
