@@ -289,6 +289,10 @@
       &.with-video {
         .wlt-content-container {
           gap:12px 60px;
+          .wlt-content-action {
+            min-height:470px;
+            justify-content:center;
+          }
           .wlt-media {
             justify-content: flex-start;
             .video-wrapper {
