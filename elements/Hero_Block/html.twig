@@ -9,6 +9,11 @@
             {{ content.headline_s_.headline }}
         {% if content.headline_s_.headline_tags is not empty %}</{{content.headline_s_.headline_tags}}>{% endif %}
       {% endif %} 
+      {% if content.headline_s_.subhead is not empty %}
+        {% if content.headline_s_.subhead_tags is not empty %} <{{content.headline_s_.subhead_tags}}>{% endif %}
+            {{ content.headline_s_.subhead }}
+        {% if content.headline_s_.subhead_tags is not empty %}</{{content.headline_s_.subhead_tags}}>{% endif %}
+      {% endif %} 
       {% if content.body_copy.body_copy is not empty %}
         {{ content.body_copy.body_copy }}
       {% endif %}
