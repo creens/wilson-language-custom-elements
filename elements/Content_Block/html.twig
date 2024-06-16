@@ -7,7 +7,14 @@
         {% endif %}
           <div class="wlt-headline">
               {% if content.eyebrow.eyebrow_header_text is not empty %}
-                  <div class="eyebrow">{{ content.eyebrow.text }}</div>
+                  <div class="eyebrow">
+                    {{ content.eyebrow.text }}
+                    {% if content.eyebrow.include_link_ %}
+                    	{{ macros.linkStart(content.eyebrow.link) }}
+                        	Link Text
+                    	{{ macros.linkEnd() }}
+					{% endif %}
+            	  </div>
               {% endif %}
               {% if content.headline.headline is not empty %}
                 {% if content.headline.tags is not empty %} <{{content.headline.tags}}>{% endif %}

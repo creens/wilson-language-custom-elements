@@ -1,19 +1,19 @@
 <div class="wlt-horiz-panels">
-    {% for item in content.horizontal_panels.panels %}
+  {% for item in content.horizontal_panels.panels %}
     <div class="wlt-horiz-panel" id="wlt-horiz-panel-{{ loop.index }}">
       <div class="horiz-cover {{ item.color }}">
         {% if item.graphic  is not empty %}
           <div id="wlt-panel-icon-{{ loop.index }}" class="icon-bkgd {{ item.color }}">
-            <div id="icon-{{ loop.index }}" class="icon {{ item.graphic }}">		</div>    
+            <div id="icon-{{ loop.index }}" class="icon {{ item.graphic }}"></div>    
           </div>
         {% endif %}
         <div class="wlt-horiz-text">
           <div>
             {% if item.title  is not empty %}
-            	<div class="title">{{ item.title }}</div>
+              <div class="title">{{ item.title }}</div>
             {% endif %}
             {% if item.description is not empty %}
-	            <div class="description">{{ item.description }}</div>
+              <div class="description">{{ item.description }}</div>
             {% endif %}
           </div>
            {% if item.link is not empty %}
@@ -24,27 +24,31 @@
         </div>
       </div>
     </div>
-    {% endfor %}
-  </div>
-
-  <div class="wlt-horiz-panels-support">
+  {% endfor %}
+</div>
+<div class="wlt-horiz-panels-support">
+  {% if content.content_area.eyebrow_header_text is not empty %}
     <div class="eyebrow">{{ content.content_area.eyebrow_header_text }}</div>
+  {% endif %}
+  {% if content.content_area.headline is not empty %}
     <h2>{{ content.content_area.headline }}</h2>
+  {% endif %}
+  {% if content.content_area.body_copy is not empty %}
     {{ content.content_area.body_copy }}
-    {% if content.button_s_.quantity is not empty %}
-        <div class="wlt-btns">
-          {% if (content.button_s_.quantity == "one") %}
+  {% endif %}
+  {% if content.button_s_.quantity is not empty %}
+      <div class="wlt-btns">
+        {% if (content.button_s_.quantity == "one") %}
 
-            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'content.button_s_.button_1.text') }}
 
-              {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
+            {% elseif (content.button_s_.quantity == "one") or (content.button_s_.quantity == "two") %}
 
-            {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
+          {{ macros.atomV1ButtonHtml(content.button_s_.button_1, 'wlt-btn-1', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_1.text') }}
 
-              {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'wlt-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
+            {{ macros.atomV1ButtonHtml(content.button_s_.button_2, 'wlt-btn-2', path.to.button_design_preset_section, 'secondary', 'content.button_s_.button_2.text') }}
 
-          {% endif %} 
-        </div>
-     {% endif %} 
-    </div>
-  </div>
+        {% endif %} 
+      </div>
+   {% endif %} 
+</div>

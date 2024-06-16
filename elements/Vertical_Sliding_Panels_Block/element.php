@@ -267,9 +267,9 @@ panels.forEach(panel => {
 const panelsContainer = document.querySelector(".wlt-sliding-panels");
 if (panelsContainer) {
   const firstPanel = panelsContainer.querySelector(".wlt-vert-panel"),
-    thirdPanel = panelsContainer.querySelectorAll(".wlt-vert-panel")[2]; // Assuming third panel is at index 2
+    thirdPanel = panelsContainer.querySelectorAll(".wlt-vert-panel")[2];
   if (firstPanel && thirdPanel) {
-    const firstPanelColor = firstPanel.querySelector(".vert-cover").classList[1]; // Assuming color class is the second class
+    const firstPanelColor = firstPanel.querySelector(".vert-cover").classList[1];
     const thirdPanelColor = thirdPanel.querySelector(".vert-cover").classList[1];
 
     if (panelsContainer.classList.contains("left")) {

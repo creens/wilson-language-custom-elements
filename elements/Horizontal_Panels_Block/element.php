@@ -263,7 +263,6 @@ class HorizontalPanelsBlock extends \Breakdance\Elements\Element
   }
 
   if (isBuilder()) {
-    // Skip fetching and replacing in builder
     return;
   }
 
@@ -273,10 +272,8 @@ class HorizontalPanelsBlock extends \Breakdance\Elements\Element
     .catch((e) => console.error("Error fetching SVG:", e));
 }
 
-// Assuming you have a function to detect the builder environment (replace with your actual implementation)
 function isBuilder() {
-  // Replace this with the actual logic to check if it\'s the builder environment
-  return window.location.href.includes("?breakdance=builder"); // Hypothetical check for URL containing "builder"
+  return window.location.href.includes("?breakdance=builder");
 }
 
 let n = document.querySelectorAll(".wlt-horiz-panel");

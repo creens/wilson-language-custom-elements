@@ -231,11 +231,12 @@
         .horiz-cover {
           flex-direction:row;
           .icon-bkgd {
-            width:166px;
-            height: 166px;
+            width:133px;
+            height:133px;
           }
           .wlt-horiz-text {
             align-items:flex-start;
+            width: 100%;
             .title, .description {
               text-align:left;
             }
@@ -272,13 +273,12 @@
     .wlt-horiz-panels {
       width:60%;
       .wlt-horiz-panel {
-        padding:
         min-height:200px;
         .horiz-cover {
           padding: 0 24px;
           .icon-bkgd {
-            width:163px;
-            height:163px;
+            width:133px;
+            height:133px;
           }
           &:before {
               content:'';
@@ -319,19 +319,20 @@
           }
           &.fundations-blue {
             &:before, &:after {
-              background:#009CDE;
+              background:#45C8FF;
             }
           }
           .wlt-horiz-text {
             flex-direction:row;
             gap:30px;
             div {
-              width:65%;
+              flex:5;
               .title, .description {
                 width:100%;
               }
             }
             a {
+              flex:1;
               text-align:center;
               align-self:center;
             }
@@ -350,12 +351,9 @@
     .wlt-horiz-panels {
       .wlt-horiz-panel {
         .horiz-cover {
-          gap:66px;
+          gap:36px;
           .wlt-horiz-text {
             justify-content:space-between;
-            div {
-              max-width:330px;
-            }
             a {
               margin-right:30px;
             }
