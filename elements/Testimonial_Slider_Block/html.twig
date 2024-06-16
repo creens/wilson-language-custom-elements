@@ -7,7 +7,9 @@
               <div class="quote"><img src="https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-quote.svg" alt="Blue quotation mark" /></div>
                 <div class="wlt-slider-content">
                   {{ item.quote }}
-                  <p class="attr">{{ item.attribution }}</p>
+                  {% if item.attribution is not empty %}
+                  	<p class="attr">{{ item.attribution }}</p>
+                  {% endif %}
               </div>
             </div>
         </div>

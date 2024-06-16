@@ -6,16 +6,32 @@
           <div class="wlt-icon">{{ macros.image(content.headline.icon, content.content.size, alt, lazyLoad) }}</div>
         {% endif %}
           <div class="wlt-headline">
-              {% if content.eyebrow.eyebrow_header_text is not empty %}
-                  <div class="eyebrow">
+            {% if content.eyebrow.text is not empty %}
+              <div class="eyebrow">
+              {% if content.eyebrow.include_link_ %}
+                  {{ macros.linkStart(content.eyebrow.link) }}
                     {{ content.eyebrow.text }}
-                    {% if content.eyebrow.include_link_ %}
-                    	{{ macros.linkStart(content.eyebrow.link) }}
-                        	Link Text
-                    	{{ macros.linkEnd() }}
-					{% endif %}
-            	  </div>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <defs>
+                            <path d="M0.705,0.705 C0.31551495,1.09448505 0.31517069,1.72585884 0.70423077,2.11576839 L4.58,6 L4.58,6 L0.70423077,9.88423161 C0.31517069,10.2741412 0.31551495,10.905515 0.705,11.295 C1.09436075,11.6843607 1.72563925,11.6843607 2.115,11.295 L7.41,6 L7.41,6 L2.115,0.705 C1.72563925,0.315639251 1.09436075,0.315639251 0.705,0.705 Z" id="path-1"></path>
+                        </defs>
+                        <g id="Arrow---Gold-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <circle fill="#003DA5" cx="12.5" cy="12.5" r="12.5"></circle>
+                            <g id="Chevron" transform="translate(9, 7)">
+                                <mask fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                            </g>
+                        </g>
+                    </svg>
+                  {{ macros.linkEnd() }}
+              {% else %}
+                {{ content.eyebrow.text }}
               {% endif %}
+              </div>
+            {% endif %}
               {% if content.headline.headline is not empty %}
                 {% if content.headline.tags is not empty %} <{{content.headline.tags}}>{% endif %}
                     {{ content.headline.headline }}

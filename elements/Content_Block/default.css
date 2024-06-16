@@ -313,11 +313,11 @@
         .wlt-content-container {
           gap:12px 90px;
           .wlt-content-action {
-            width:45%;
+            width:50%;
             flex:unset;
           }
           .wlt-media {
-            width:55%;
+            width:50%;
             flex:unset;
           }
         }

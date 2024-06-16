@@ -10,12 +10,44 @@
   padding:0;
   {% endif %}
 }
+/* Eyebrow settings */
+{% if content.eyebrow.include_link_ %}
+	.wlt-content-copy {
+      .eyebrow {
+        display:flex;
+        align-items:center;
+        gap:6px;
+        cursor:pointer;
+        a {
+          color:#1D1C1D;
+          text-decoration:none;
+        }
+        svg {
+          margin-top:3px;
+          width:15px;
+          height:15px;
+          transition:all 250ms ease;
+        }
+        &:hover {
+          svg {
+            transform:translateX(3px);
+          }
+        }
+      }
+	}
+{% else %}
+{% endif %}
 /* Theme color settings */
 %%SELECTOR%% {
 {% if content.theme_color.color == 'blue' %}
     .wlt-content-copy {
       .eyebrow {
         border-left:3px #003DA5 solid;
+         svg {
+            circle {
+              fill:#003DA5;
+            }
+         }
       }
     }
     .wlt-media {
@@ -61,6 +93,11 @@
     .wlt-content-copy {
       .eyebrow {
          border-left:3px #F1BE48 solid;
+          svg {
+            circle {
+              fill:#F1BE48;
+            }
+          }
        }
     }
     .wlt-media {
@@ -116,6 +153,11 @@
     .wlt-content-copy {
       .eyebrow {
         border-left:3px #71DDB7 solid;
+        svg {
+            circle {
+              fill:#71DDB7;
+            }
+         }
       }
     }
     .wlt-media {
@@ -372,11 +414,11 @@
               .pattern {
                 left:calc(-93%/5);
                 {% if design.media.round_corners == 'round-top' %}
-                  border-radius:0 66px 0 0;
+                  border-radius:0 99px 0 0;
                 {% elseif design.media.round_corners == 'round-bottom' %}
-                  border-radius:0 0 66px 0;
+                  border-radius:0 0 99px 0;
                 {% elseif design.media.round_corners == 'round-both' %}
-                  border-radius:0 66px 66px 0;
+                  border-radius:0 99px 99px 0;
                 {% endif %}
               }
             }
@@ -397,11 +439,11 @@
               .pattern {
                 right:calc(-93%/5);
                 {% if design.media.round_corners == 'round-top' %}
-                  border-radius:0 66px 0 0;
+                  border-radius:0 99px 0 0;
                 {% elseif design.media.round_corners == 'round-bottom' %}
-                  border-radius:0 0 66px 0;
+                  border-radius:0 0 99px 0;
                 {% elseif design.media.round_corners == 'round-both' %}
-                  border-radius:0 66px 66px 0;
+                  border-radius:0 99px 99px 0;
                 {% endif %}
               }
             }

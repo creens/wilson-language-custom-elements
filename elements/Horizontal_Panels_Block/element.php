@@ -262,18 +262,10 @@ class HorizontalPanelsBlock extends \Breakdance\Elements\Element
     return;
   }
 
-  if (isBuilder()) {
-    return;
-  }
-
   fetch(t)
     .then((e) => e.text())
-    .then((t) => (n.outerHTML = t))
+    .then((t) => (n.innerHTML = t))
     .catch((e) => console.error("Error fetching SVG:", e));
-}
-
-function isBuilder() {
-  return window.location.href.includes("?breakdance=builder");
 }
 
 let n = document.querySelectorAll(".wlt-horiz-panel");
@@ -283,6 +275,9 @@ for (let l of n) {
     let r = l.querySelector(\'.icon\').classList[1],
       a = o.id;
     a && t(a, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + r + ".svg");
+    o.addEventListener("change", function() {
+      t(this.id, "https://wilsonlanguage.local/wp-content/uploads/2024/05/icon-" + this.classList[1] + ".svg");
+    });
   }
 }','const bounceAnimation = (element) => {
   element.classList.add(\'bounce\');

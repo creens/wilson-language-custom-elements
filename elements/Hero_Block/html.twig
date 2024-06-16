@@ -4,16 +4,42 @@
       {% if content.eyebrow.eyebrow is not empty %}
         <div class="eyebrow">{{ content.eyebrow.eyebrow }}</div>
       {% endif %}
+
       {% if content.headline_s_.headline is not empty %}
         {% if content.headline_s_.headline_tags is not empty %} <{{content.headline_s_.headline_tags}}>{% endif %}
             {{ content.headline_s_.headline }}
         {% if content.headline_s_.headline_tags is not empty %}</{{content.headline_s_.headline_tags}}>{% endif %}
       {% endif %} 
+
       {% if content.headline_s_.subhead is not empty %}
+        {% if content.headline_s_.add_a_link_ %}
+            {% if content.headline_s_.subhead_tags is not empty %} <{{content.headline_s_.subhead_tags}}>{% endif %}
+              {{ macros.linkStart(content.headline_s_.link) }} 
+              {{ content.headline_s_.subhead }}
+              <?xml version="1.0" encoding="UTF-8"?>
+              <svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs>
+                      <path d="M0.705,0.705 C0.31551495,1.09448505 0.31517069,1.72585884 0.70423077,2.11576839 L4.58,6 L4.58,6 L0.70423077,9.88423161 C0.31517069,10.2741412 0.31551495,10.905515 0.705,11.295 C1.09436075,11.6843607 1.72563925,11.6843607 2.115,11.295 L7.41,6 L7.41,6 L2.115,0.705 C1.72563925,0.315639251 1.09436075,0.315639251 0.705,0.705 Z" id="path-1"></path>
+                  </defs>
+                  <g id="Arrow---Gold-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <circle fill="#003DA5" cx="12.5" cy="12.5" r="12.5"></circle>
+                      <g id="Chevron" transform="translate(9, 7)">
+                          <mask fill="white">
+                              <use xlink:href="#path-1"></use>
+                          </mask>
+                          <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                      </g>
+                  </g>
+              </svg>
+              {{ macros.linkEnd() }}
+        {% if content.headline_s_.subhead_tags is not empty %}</{{content.headline_s_.subhead_tags}}>{% endif %}
+      {% else %}
         {% if content.headline_s_.subhead_tags is not empty %} <{{content.headline_s_.subhead_tags}}>{% endif %}
-            {{ content.headline_s_.subhead }}
+          {{ content.headline_s_.subhead }}
         {% if content.headline_s_.subhead_tags is not empty %}</{{content.headline_s_.subhead_tags}}>{% endif %}
       {% endif %} 
+      {% endif %}
+
       {% if content.body_copy.body_copy is not empty %}
       {{ content.body_copy.body_copy }}
       {% endif %}

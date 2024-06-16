@@ -106,6 +106,14 @@ class HeroBlock extends \Breakdance\Elements\Element
         false,
         [],
       ), c(
+        "shape",
+        "Shape",
+        [],
+        ['type' => 'button_bar', 'layout' => 'inline', 'items' => [['value' => 'circle', 'text' => 'Circle'], ['text' => 'Rectangle', 'value' => 'rectangle']], 'condition' => [[['path' => 'design.media.media_type', 'operand' => 'equals', 'value' => 'image']]]],
+        false,
+        false,
+        [],
+      ), c(
         "video",
         "Video",
         [],
@@ -230,6 +238,22 @@ class HeroBlock extends \Breakdance\Elements\Element
         false,
         false,
         [],
+      ), c(
+        "add_a_link_",
+        "Add a link?",
+        [],
+        ['type' => 'toggle', 'layout' => 'vertical'],
+        false,
+        false,
+        [],
+      ), c(
+        "link",
+        "Link",
+        [],
+        ['type' => 'link', 'layout' => 'vertical', 'condition' => [[['path' => 'content.headline_s_.add_a_link_', 'operand' => 'is set', 'value' => '']]]],
+        false,
+        false,
+        [],
       )],
         ['type' => 'section', 'layout' => 'vertical'],
         false,
@@ -342,8 +366,9 @@ class HeroBlock extends \Breakdance\Elements\Element
 {% endif %}
 '], ['name' => 'with-video', 'template' => '{% if design.media is defined and design.media.media_type in [\'video\'] %}
   with-video
-{% endif %}
-']];
+{% endif %}'], ['name' => 'image-rectangle', 'template' => '{% if design.media is defined and (design.media.shape == \'rectangle\') %}
+  image-rectangle
+{% endif %}']];
     }
 
     static function projectManagement()
