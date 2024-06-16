@@ -50,6 +50,10 @@
       &.simple-text {
         a {
           color:#003DA5;
+          &:after {
+            background:url('https://wilsonlanguage.local/wp-content/uploads/2024/06/arrow-blue-right.svg') no-repeat;
+            background-size:cover;
+          }
         }
       }
     }
@@ -96,6 +100,17 @@
           border:3px solid #F1BE48;
         }
       }
+      &.simple-text {
+          a {
+            &:after {
+                background:url('https://wilsonlanguage.local/wp-content/uploads/2024/06/arrow-gold-right.svg') no-repeat;
+                background-size:cover;
+            }
+            &:hover {
+                color:#332404!important;
+            }
+          }
+        }
     }
   {% elseif content.theme_color.color == 'teal' %}
     .wlt-content-copy {
@@ -138,6 +153,17 @@
         color:#001A51;
         background:#D8F5E9;
         border:3px solid #71DDB7;
+      }
+    }
+    &.simple-text {
+      a {
+        &:after {
+            background:url('https://wilsonlanguage.local/wp-content/uploads/2024/06/arrow-teal-right.svg') no-repeat;
+            background-size:cover;
+        }
+        &:hover {
+            color:#0F402F!important;
+        }
       }
     }
   }
@@ -401,7 +427,7 @@
           padding:66px 33px 66px 0;
         }
       }
-  	{% else %}
+    {% else %}
       .wlt-content-container {
         .wlt-content-action {
           width:100%;

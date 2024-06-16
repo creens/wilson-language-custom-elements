@@ -2,17 +2,25 @@
     {% for item in content.horizontal_panels.panels %}
     <div class="wlt-horiz-panel" id="wlt-horiz-panel-{{ loop.index }}">
       <div class="horiz-cover {{ item.color }}">
-        <div id="wlt-panel-icon-{{ loop.index }}" class="icon-bkgd {{ item.color }}">
-          <div id="icon-{{ loop.index }}" class="icon {{ item.graphic }}"></div>	
-        </div>
+        {% if item.graphic  is not empty %}
+          <div id="wlt-panel-icon-{{ loop.index }}" class="icon-bkgd {{ item.color }}">
+            <div id="icon-{{ loop.index }}" class="icon {{ item.graphic }}">		</div>    
+          </div>
+        {% endif %}
         <div class="wlt-horiz-text">
           <div>
-            <div class="title">{{ item.title }}</div>
-            <div class="description">{{ item.description }}</div>
+            {% if item.title  is not empty %}
+            	<div class="title">{{ item.title }}</div>
+            {% endif %}
+            {% if item.description is not empty %}
+	            <div class="description">{{ item.description }}</div>
+            {% endif %}
           </div>
-         {{ macros.linkStart(item.link) }}
-             Learn More
-         {{ macros.linkEnd() }}
+           {% if item.link is not empty %}
+            {{ macros.linkStart(item.link) }}
+              Learn More
+            {{ macros.linkEnd() }}
+          {% endif %}
         </div>
       </div>
     </div>
