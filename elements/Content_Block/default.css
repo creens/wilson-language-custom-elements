@@ -29,7 +29,7 @@
         .wlt-headline {
           display:flex;
           flex-direction:column;
-          gap:9px;
+          gap:18px 9px;
           h1, h2, h3, h4, h5, h6 {
             text-align:left;
             margin:0;

@@ -102,6 +102,30 @@ class VerticalSlidingPanelsBlock extends \Breakdance\Elements\Element
         false,
         false,
         [],
+      ), c(
+        "spacing",
+        "Spacing",
+        [c(
+        "padding_top",
+        "Padding Top",
+        [],
+        ['type' => 'unit', 'layout' => 'inline'],
+        true,
+        false,
+        [],
+      ), c(
+        "padding_bottom",
+        "Padding Bottom",
+        [],
+        ['type' => 'unit', 'layout' => 'inline'],
+        true,
+        false,
+        [],
+      )],
+        ['type' => 'section'],
+        false,
+        false,
+        [],
       )];
     }
 
