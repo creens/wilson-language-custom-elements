@@ -77,3 +77,27 @@
     }
   {% endif %}
 }
+@media only screen and (min-width: 1024px) {
+  %%SELECTOR%% {
+    {% if design.design.alignment == 'panels-left' %}
+      .wlt-sliding-panels-support {
+        margin-right:30px;
+      }
+    {% elseif design.design.alignment == 'panels-right' %}
+       .wlt-sliding-panels-support {
+       	 padding-left:30px;
+      	}
+    {% endif %}
+  }
+}
+@media only screen and (min-width: 1200px) {
+  %%SELECTOR%% {
+    {% if design.design.alignment == 'panels-left' %}
+      left:50%;
+      transform:translateX(-57%);
+    {% elseif design.design.alignment == 'panels-right' %}
+       left:50%;
+       transform:translateX(-49%);
+    {% endif %}
+  }
+}

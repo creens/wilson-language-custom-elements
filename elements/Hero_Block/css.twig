@@ -44,6 +44,23 @@
     .hero-media {
       order:0;
     }
+  &.with-media {
+    &.with-video, &.image-rectangle {
+      &:before, &:after {
+        bottom:0;
+        top:unset;
+      }
+      &:before {
+        background:transparent;
+      }
+      &:after {
+        height:72%;
+      }
+      .hero-media {
+        margin:0 0 33px;
+      }
+    }
+  }
   {% elseif design.media.alignment == 'media-right' %}
     .hero-action {
       order:0;
@@ -394,6 +411,31 @@
         }
       }
     }
+  }
+  %%SELECTOR%% {
+    {% if design.media.alignment == 'media-left' %}
+    &.with-media {
+      &.with-video, &.image-rectangle {
+        &:before, &:after {
+          right:0;
+          left:unset;
+        }
+        &:after {
+          height:auto;
+        }
+        .hero-media {
+          margin:0;
+        }
+      }
+    }
+    {% elseif design.media.alignment == 'media-right' %}
+      .hero-action {
+        order:0;
+      }
+      .hero-media {
+        order:1;
+      }
+    {% endif %}
   }
 }
 @media only screen and (min-width: 988px) {
